@@ -13,16 +13,6 @@ let STOP: String = "Stop"
 let fileManager: FileManager = .default
 let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
 
-func getDurationString(startDate: Date, endDate: Date) -> String {
-    let difference = Calendar.current.dateComponents([.minute, .second], from: startDate, to: endDate)
-    
-    let strMin = String(format: "%02d", difference.minute ?? 00)
-    let strSec = String(format: "%02d", difference.second ?? 00)
-    
-    return "\(strMin):\(strSec)"
-}
-
-
 let restRecords = [RestRecord]()
 
 struct ContentView: View {
@@ -39,12 +29,10 @@ struct ContentView: View {
             if buttonTitle == STOP {
                 Text("\(timerString)")
                     .onReceive(timer) { input in
-                        timerString = getDurationString(startDate: startDate, endDate: Date())
+                        timerString = startDate.getDurationString(endDate: Date())
                     }
             }
             Button(buttonTitle, action: {
-                print(urls)
-
                 if buttonTitle == START_RESTING {
                     buttonTitle = STOP
                     startDate = Date()

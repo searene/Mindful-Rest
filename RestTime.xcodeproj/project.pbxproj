@@ -22,6 +22,7 @@
 		D4A53B3927FAA023004A0F4C /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */; };
 		D4A53B3B27FAA55F004A0F4C /* RestFileManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */; };
 		D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3D27FACB24004A0F4C /* StringUtils.swift */; };
+		D4A53B4027FB24A6004A0F4C /* DateExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
 		D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestFileManagerTest.swift; path = RestTimeTests/RestFileManagerTest.swift; sourceTree = "<group>"; };
 		D4A53B3D27FACB24004A0F4C /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,6 @@
 				D4090BEF27F88FC80068E4C5 /* ContentView.swift */,
 				D4090BF127F88FCA0068E4C5 /* Assets.xcassets */,
 				D4090BF327F88FCA0068E4C5 /* Preview Content */,
-				D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */,
 			);
 			path = RestTime;
 			sourceTree = "<group>";
@@ -121,6 +122,7 @@
 				D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */,
 				D4A53B3627FA9CB3004A0F4C /* DictExtensionTest.swift */,
 				D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */,
+				D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */,
 			);
 			path = RestTimeTests;
 			sourceTree = "<group>";
@@ -146,6 +148,7 @@
 		D4A53B3C27FACB16004A0F4C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */,
 				D4A53B3D27FACB24004A0F4C /* StringUtils.swift */,
 			);
 			path = Util;
@@ -270,6 +273,7 @@
 				D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */,
 				D4A53B3B27FAA55F004A0F4C /* RestFileManagerTest.swift in Sources */,
 				D4A53B3927FAA023004A0F4C /* StringExtensionTest.swift in Sources */,
+				D4A53B4027FB24A6004A0F4C /* DateExtensionTest.swift in Sources */,
 				D4A53B3727FA9CB3004A0F4C /* DictExtensionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

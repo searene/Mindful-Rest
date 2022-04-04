@@ -14,4 +14,15 @@ extension Date {
         dateFormatter.dateFormat = format.stringFormat
         return dateFormatter.string(from: self)
     }
+    
+    /// Get the string to represent the duration, e.g. 10:30, which represents 10 minutes 30 seconds
+    func getDurationString(endDate: Date) -> String {
+        let difference = Calendar.current.dateComponents([.minute, .second], from: self, to: endDate)
+        
+        let strMin = String(format: "%02d", difference.minute ?? 00)
+        let strSec = String(format: "%02d", difference.second ?? 00)
+        
+        return "\(strMin):\(strSec)"
+    }
+
 }

@@ -26,6 +26,12 @@ func getRestRecords() -> [RestRecord] {
     return RestRecord.fromDicts(dicts: restRecordsDicts)
 }
 
+func deleteDataFile() -> Void {
+    let fileManager = getFileManager()
+    let filePath = getDataFilePath(fileManager: fileManager)
+    try! fileManager.removeItem(atPath: filePath.path)
+}
+
 private func getFileManager() -> FileManager {
     return FileManager.default
 }
