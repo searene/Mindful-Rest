@@ -23,6 +23,8 @@
 		D4A53B3B27FAA55F004A0F4C /* RestFileManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */; };
 		D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3D27FACB24004A0F4C /* StringUtils.swift */; };
 		D4A53B4027FB24A6004A0F4C /* DateExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */; };
+		D4A53B4227FB3810004A0F4C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B4127FB3810004A0F4C /* MainView.swift */; };
+		D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B4327FB386C004A0F4C /* StatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestFileManagerTest.swift; path = RestTimeTests/RestFileManagerTest.swift; sourceTree = "<group>"; };
 		D4A53B3D27FACB24004A0F4C /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTest.swift; sourceTree = "<group>"; };
+		D4A53B4127FB3810004A0F4C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D4A53B4327FB386C004A0F4C /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +100,12 @@
 		D4090BEC27F88FC80068E4C5 /* RestTime */ = {
 			isa = PBXGroup;
 			children = (
+				D4A53B4527FB38E8004A0F4C /* View */,
 				D4A53B3C27FACB16004A0F4C /* Util */,
 				D4A53B3127FA99AD004A0F4C /* File */,
 				D4A53B2827FA8B47004A0F4C /* Extension */,
 				D4A53AC427F9D905004A0F4C /* RestRecord.swift */,
 				D4090BED27F88FC80068E4C5 /* RestTimeApp.swift */,
-				D4090BEF27F88FC80068E4C5 /* ContentView.swift */,
 				D4090BF127F88FCA0068E4C5 /* Assets.xcassets */,
 				D4090BF327F88FCA0068E4C5 /* Preview Content */,
 			);
@@ -152,6 +156,16 @@
 				D4A53B3D27FACB24004A0F4C /* StringUtils.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		D4A53B4527FB38E8004A0F4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4090BEF27F88FC80068E4C5 /* ContentView.swift */,
+				D4A53B4127FB3810004A0F4C /* MainView.swift */,
+				D4A53B4327FB386C004A0F4C /* StatView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +270,9 @@
 			files = (
 				D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */,
 				D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */,
+				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
+				D4A53B4227FB3810004A0F4C /* MainView.swift in Sources */,
 				D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */,
 				D4A53B3327FA99C1004A0F4C /* RestFileManager.swift in Sources */,
 				D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */,
