@@ -1,0 +1,35 @@
+//
+//  RestRecord.swift
+//  RestTimeTests
+//
+//  Created by Joey Green on 2022/4/4.
+//
+
+import XCTest
+@testable import RestTime
+
+class RestRecordTest: XCTestCase {
+
+    func testToDict() {
+        let startDateStr: String = "2020-03-10 12:00:00"
+        let endDateStr: String = "2020-03-10 13:00:00"
+        let restRecord = RestRecord(startDate: startDateStr.toDate(), endDate: endDateStr.toDate())
+        
+        let restRecordDict = restRecord.toDict()
+        
+        let expect: [String: String] = ["startDate": startDateStr, "endDate": endDateStr]
+        XCTAssertEqual(restRecordDict, expect)
+    }
+    
+    func testToDicts() {
+        let startDateStr: String = "2020-03-10 12:00:00"
+        let endDateStr: String = "2020-03-10 13:00:00"
+        let restRecord = RestRecord(startDate: startDateStr.toDate(), endDate: endDateStr.toDate())
+        
+        let restRecordDicts = RestRecord.toDicts(restRecords: [restRecord])
+        
+        let expect: [[String: String]] = [["startDate": startDateStr, "endDate": endDateStr]]
+        XCTAssertEqual(restRecordDicts, expect)
+    }
+
+}

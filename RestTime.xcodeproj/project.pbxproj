@@ -15,7 +15,7 @@
 		D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */; };
 		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
 		D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */; };
-		D4A53B3027FA92F5004A0F4C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */; };
+		D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecordTest.swift; sourceTree = "<group>"; };
 		D4A53B2927FA8B64004A0F4C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D4A53B2927FA8B64004A0F4C /* StringExtension.swift */,
-				D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */,
+				D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4A53B3027FA92F5004A0F4C /* DateFormatter.swift in Sources */,
+				D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */,
 				D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */,

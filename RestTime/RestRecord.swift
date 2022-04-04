@@ -15,6 +15,10 @@ struct RestRecord {
         return ["startDate": startDate.toString(),
                 "endDate": endDate.toString()]
     }
+    
+    static func toDicts(restRecords: [RestRecord]) -> [[String: String]] {
+        return restRecords.map { $0.toDict() }
+    }
 }
 
 class RestRecordService {
