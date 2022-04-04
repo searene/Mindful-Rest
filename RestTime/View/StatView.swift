@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct StatView: View {
+    
+    @State private var statDate = Date.now
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 0) {
+            DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
+                .labelsHidden()
+            Spacer()
+        }
     }
 }
 
