@@ -8,22 +8,26 @@
 import SwiftUI
 
 let START_RESTING: String = "Start Resting"
-let RESTING: String = "Resting..."
+let STOP: String = "Stop"
 
-extension Date {
-    func passedTime(from date: Date) -> String {
-        let difference = Calendar.current.dateComponents([.minute, .second], from: date, to: self)
-        
-        let strMin = String(format: "%02d", difference.minute ?? 00)
-        let strSec = String(format: "%02d", difference.second ?? 00)
-        
-        return "\(strMin):\(strSec)"
-    }
+let fileManager: FileManager = .default
+let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+
+func getDurationString(startDate: Date, endDate: Date) -> String {
+    let difference = Calendar.current.dateComponents([.minute, .second], from: startDate, to: endDate)
+    
+    let strMin = String(format: "%02d", difference.minute ?? 00)
+    let strSec = String(format: "%02d", difference.second ?? 00)
+    
+    return "\(strMin):\(strSec)"
 }
+
+
+let restRecords = [RestRecord]()
 
 struct ContentView: View {
     
-    @State private var startTime = Date()
+    @State private var startDate = Date()
     @State private var timerString = "00:00"
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -32,18 +36,21 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if buttonTitle == RESTING {
+            if buttonTitle == STOP {
                 Text("\(timerString)")
                     .onReceive(timer) { input in
-                        timerString = Date().passedTime(from: startTime)
+                        timerString = getDurationString(startDate: startDate, endDate: Date())
                     }
             }
             Button(buttonTitle, action: {
+                print(urls)
+
                 if buttonTitle == START_RESTING {
-                    buttonTitle = RESTING
-                    startTime = Date()
+                    buttonTitle = STOP
+                    startDate = Date()
                 } else {
                     buttonTitle = START_RESTING
+                    timerString = "00:00"
                 }
             })
             .tint(.blue)
@@ -55,6 +62,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewInterfaceOrientation(.portraitUpsideDown)
+        }
     }
 }

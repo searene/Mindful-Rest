@@ -11,7 +11,22 @@
 		D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4090BEF27F88FC80068E4C5 /* ContentView.swift */; };
 		D4090BF227F88FCA0068E4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF127F88FCA0068E4C5 /* Assets.xcassets */; };
 		D4090BF527F88FCA0068E4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */; };
+		D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53AC427F9D905004A0F4C /* RestRecord.swift */; };
+		D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */; };
+		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
+		D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */; };
+		D4A53B3027FA92F5004A0F4C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4A53B2127FA88AF004A0F4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4090BE227F88FC80068E4C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4090BE927F88FC80068E4C5;
+			remoteInfo = RestTime;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D4090BEA27F88FC80068E4C5 /* RestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +34,23 @@
 		D4090BEF27F88FC80068E4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D4A53AC427F9D905004A0F4C /* RestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecord.swift; sourceTree = "<group>"; };
+		D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecordTest.swift; sourceTree = "<group>"; };
+		D4A53B2927FA8B64004A0F4C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D4090BE727F88FC80068E4C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A53B1A27FA88AF004A0F4C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				D4090BEC27F88FC80068E4C5 /* RestTime */,
+				D4A53B1E27FA88AF004A0F4C /* RestTimeTests */,
 				D4090BEB27F88FC80068E4C5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				D4090BEA27F88FC80068E4C5 /* RestTime.app */,
+				D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,10 +81,13 @@
 		D4090BEC27F88FC80068E4C5 /* RestTime */ = {
 			isa = PBXGroup;
 			children = (
+				D4A53B2827FA8B47004A0F4C /* Extension */,
+				D4A53AC427F9D905004A0F4C /* RestRecord.swift */,
 				D4090BED27F88FC80068E4C5 /* RestTimeApp.swift */,
 				D4090BEF27F88FC80068E4C5 /* ContentView.swift */,
 				D4090BF127F88FCA0068E4C5 /* Assets.xcassets */,
 				D4090BF327F88FCA0068E4C5 /* Preview Content */,
+				D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */,
 			);
 			path = RestTime;
 			sourceTree = "<group>";
@@ -65,6 +98,23 @@
 				D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D4A53B1E27FA88AF004A0F4C /* RestTimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */,
+			);
+			path = RestTimeTests;
+			sourceTree = "<group>";
+		};
+		D4A53B2827FA8B47004A0F4C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D4A53B2927FA8B64004A0F4C /* StringExtension.swift */,
+				D4A53B2F27FA92F5004A0F4C /* DateFormatter.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +137,24 @@
 			productReference = D4090BEA27F88FC80068E4C5 /* RestTime.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D4A53B1C27FA88AF004A0F4C /* RestTimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A53B2327FA88AF004A0F4C /* Build configuration list for PBXNativeTarget "RestTimeTests" */;
+			buildPhases = (
+				D4A53B1927FA88AF004A0F4C /* Sources */,
+				D4A53B1A27FA88AF004A0F4C /* Frameworks */,
+				D4A53B1B27FA88AF004A0F4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4A53B2227FA88AF004A0F4C /* PBXTargetDependency */,
+			);
+			name = RestTimeTests;
+			productName = RestTimeTests;
+			productReference = D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +167,10 @@
 				TargetAttributes = {
 					D4090BE927F88FC80068E4C5 = {
 						CreatedOnToolsVersion = 13.3;
+					};
+					D4A53B1C27FA88AF004A0F4C = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = D4090BE927F88FC80068E4C5;
 					};
 				};
 			};
@@ -116,6 +188,7 @@
 			projectRoot = "";
 			targets = (
 				D4090BE927F88FC80068E4C5 /* RestTime */,
+				D4A53B1C27FA88AF004A0F4C /* RestTimeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +203,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4A53B1B27FA88AF004A0F4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +217,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A53B3027FA92F5004A0F4C /* DateFormatter.swift in Sources */,
+				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
+				D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */,
+				D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */,
 				D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */,
 				D4090BEE27F88FC80068E4C5 /* RestTimeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4A53B1927FA88AF004A0F4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4A53B2227FA88AF004A0F4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4090BE927F88FC80068E4C5 /* RestTime */;
+			targetProxy = D4A53B2127FA88AF004A0F4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D4090BF627F88FCA0068E4C5 /* Debug */ = {
@@ -317,6 +417,42 @@
 			};
 			name = Release;
 		};
+		D4A53B2427FA88AF004A0F4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38YM4USZ8J;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rest.RestTime.RestTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestTime.app/RestTime";
+			};
+			name = Debug;
+		};
+		D4A53B2527FA88AF004A0F4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38YM4USZ8J;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rest.RestTime.RestTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestTime.app/RestTime";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +470,15 @@
 			buildConfigurations = (
 				D4090BF927F88FCA0068E4C5 /* Debug */,
 				D4090BFA27F88FCA0068E4C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A53B2327FA88AF004A0F4C /* Build configuration list for PBXNativeTarget "RestTimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A53B2427FA88AF004A0F4C /* Debug */,
+				D4A53B2527FA88AF004A0F4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
