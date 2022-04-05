@@ -16,11 +16,11 @@
 		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
 		D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */; };
 		D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */; };
-		D4A53B3327FA99C1004A0F4C /* RestFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3227FA99C1004A0F4C /* RestFileManager.swift */; };
+		D4A53B3327FA99C1004A0F4C /* RestDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */; };
 		D4A53B3527FA9C54004A0F4C /* DictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3427FA9C54004A0F4C /* DictExtension.swift */; };
 		D4A53B3727FA9CB3004A0F4C /* DictExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3627FA9CB3004A0F4C /* DictExtensionTest.swift */; };
 		D4A53B3927FAA023004A0F4C /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */; };
-		D4A53B3B27FAA55F004A0F4C /* RestFileManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */; };
+		D4A53B3B27FAA55F004A0F4C /* RestDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */; };
 		D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3D27FACB24004A0F4C /* StringUtils.swift */; };
 		D4A53B4027FB24A6004A0F4C /* DateExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */; };
 		D4A53B4227FB3810004A0F4C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B4127FB3810004A0F4C /* MainView.swift */; };
@@ -50,11 +50,11 @@
 		D4A53B2927FA8B64004A0F4C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D4A53B2D27FA92AA004A0F4C /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		D4A53B3227FA99C1004A0F4C /* RestFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestFileManager.swift; sourceTree = "<group>"; };
+		D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestDataManager.swift; sourceTree = "<group>"; };
 		D4A53B3427FA9C54004A0F4C /* DictExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictExtension.swift; sourceTree = "<group>"; };
 		D4A53B3627FA9CB3004A0F4C /* DictExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictExtensionTest.swift; sourceTree = "<group>"; };
 		D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
-		D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestFileManagerTest.swift; path = RestTimeTests/RestFileManagerTest.swift; sourceTree = "<group>"; };
+		D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestDataManagerTest.swift; path = RestTimeTests/RestDataManagerTest.swift; sourceTree = "<group>"; };
 		D4A53B3D27FACB24004A0F4C /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTest.swift; sourceTree = "<group>"; };
 		D4A53B4127FB3810004A0F4C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		D4090BE127F88FC80068E4C5 = {
 			isa = PBXGroup;
 			children = (
-				D4A53B3A27FAA55F004A0F4C /* RestFileManagerTest.swift */,
+				D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */,
 				D4090BEC27F88FC80068E4C5 /* RestTime */,
 				D4A53B1E27FA88AF004A0F4C /* RestTimeTests */,
 				D4090BEB27F88FC80068E4C5 /* Products */,
@@ -146,7 +146,7 @@
 		D4A53B3127FA99AD004A0F4C /* File */ = {
 			isa = PBXGroup;
 			children = (
-				D4A53B3227FA99C1004A0F4C /* RestFileManager.swift */,
+				D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4A53B4227FB3810004A0F4C /* MainView.swift in Sources */,
 				D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */,
-				D4A53B3327FA99C1004A0F4C /* RestFileManager.swift in Sources */,
+				D4A53B3327FA99C1004A0F4C /* RestDataManager.swift in Sources */,
 				D4A53B2E27FA92AA004A0F4C /* DateUtils.swift in Sources */,
 				D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */,
 				D4090BEE27F88FC80068E4C5 /* RestTimeApp.swift in Sources */,
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */,
-				D4A53B3B27FAA55F004A0F4C /* RestFileManagerTest.swift in Sources */,
+				D4A53B3B27FAA55F004A0F4C /* RestDataManagerTest.swift in Sources */,
 				D4A53B3927FAA023004A0F4C /* StringExtensionTest.swift in Sources */,
 				D4A53B4027FB24A6004A0F4C /* DateExtensionTest.swift in Sources */,
 				D4A53B3727FA9CB3004A0F4C /* DictExtensionTest.swift in Sources */,
