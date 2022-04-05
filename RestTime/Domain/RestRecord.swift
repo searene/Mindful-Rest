@@ -19,20 +19,10 @@ struct RestRecord: Equatable, Identifiable {
     func getDuration() -> Duration {
         return Duration.fromDates(startDate, endDate)
     }
+    
+    static func getTotalDuration(_ restRecords: [RestRecord]) -> Duration {
+        return restRecords.map { $0.getDuration() }
+            .reduce(Duration(durationInSeconds: 0)) { $0 + $1 }
+    }
 }
 
-class RestRecordService {
-    enum Error: Swift.Error {
-        case fileAlreadyExists
-        case invalidDirectory
-        case writtingFailed
-    }
-    let fileManager: FileManager
-    init(fileManager: FileManager = .default) {
-        self.fileManager = fileManager
-    }
-    private func getDataFilePath() -> URL {
-        let folderURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return folderURL.appendingPathComponent("rest_time.data")
-    }
-}

@@ -11,13 +11,13 @@ struct StatItem: View {
     
     private let restRecordId: Int64
     private let startDate: Date
-    @State private var endDate: Date = Date.now
+    @State private var endDate: Date
     @State private var showEndDatePicker = false
     
     init(_ restRecord: RestRecord) {
-        self.restRecordId = restRecord.id
-        self.startDate = restRecord.startDate
-        self.endDate = restRecord.endDate
+        restRecordId = restRecord.id
+        startDate = restRecord.startDate
+        _endDate = State(initialValue: restRecord.endDate)
     }
     
     var body: some View {

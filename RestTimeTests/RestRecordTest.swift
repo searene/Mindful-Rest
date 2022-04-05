@@ -19,5 +19,19 @@ class RestRecordTest: XCTestCase {
         
         XCTAssertEqual(duration, Duration(durationInSeconds: 70))
     }
+    
+    func testGetTotalDuration() -> Void {
+        let record1 = RestRecord(id: 1,
+                                startDate: "2020-10-30 10:00:00".toDate(),
+                                endDate: "2020-10-30 10:01:10".toDate())
+        
+        let record2 = RestRecord(id: 2,
+                                startDate: "2020-10-30 10:02:00".toDate(),
+                                endDate: "2020-10-30 10:02:06".toDate())
+        
+        let duration = RestRecord.getTotalDuration([record1, record2])
+        
+        XCTAssertEqual(duration, Duration(durationInSeconds: 76))
+    }
 
 }

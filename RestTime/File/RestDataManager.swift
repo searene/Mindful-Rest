@@ -82,10 +82,7 @@ struct RestDataManager {
 
     private static func getDataFilePath(fileManager: FileManager) -> URL {
         let folderURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let res = folderURL.appendingPathComponent("rest_time.data")
-        print("db url")
-        print(res)
-        return res
+        return folderURL.appendingPathComponent("rest_time.data")
     }
     
     private static func initRestRecordTable(db: Connection) -> RestRecordDataScheme {

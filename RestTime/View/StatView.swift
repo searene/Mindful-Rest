@@ -9,21 +9,31 @@ import SwiftUI
 
 struct StatView: View {
     
-    @State private var statDate = Date.now.onlyReserveDate()
+    @State private var statDate: Date;
+    @State private var restRecords: [RestRecord] = [];
+    
+    init() {
+        let statDate = Date().onlyReserveDate()
+        _statDate = State(initialValue: statDate)
+        _restRecords = State(initialValue: getRestRecords(statDate))
+    }
     
     var body: some View {
-        let restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
         VStack(alignment: .center, spacing: 0) {
             DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
                 .labelsHidden()
                 .padding()
             Spacer()
-//            Text("total: " + \(getTotalDurationStr(restRecords))
+            Text("total: \(RestRecord.getTotalDuration(restRecords).toString())")
             List(restRecords) { restRecord in
                 StatItem(restRecord)
             }
             Spacer()
         }
+    }
+    
+    private func getRestRecords(_ statDate: Date) -> [RestRecord] {
+        return RestDataManager.getRestRecordAtDay(date: statDate)
     }
     
 }
