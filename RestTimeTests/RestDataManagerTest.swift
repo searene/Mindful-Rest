@@ -50,6 +50,23 @@ class RestDataManagerTest: XCTestCase {
         XCTAssertTrue(isEqualWithoutCheckingId(records, [record2, record1]))
     }
     
+    func testUpdateRecordById() {
+        let record1 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-30 10:00:00".toDate(),
+                                 endDate: "2020-12-30 11:00:00".toDate())
+        let record2 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-30 12:00:00".toDate(),
+                                 endDate: "2020-12-30 13:00:00".toDate())
+        let recordId1 = RestDataManager.saveRestRecord(restRecord: record1)
+        let recordId2 = RestDataManager.saveRestRecord(restRecord: record2)
+
+        let updatedRecord = RestRecord(id: recordId1, startDate: "2022-12-30 10:00:00".toDate(), endDate: "2022-12-31 22:00:00".toDate())
+        RestDataManager.updateRestRecordById(restRecord: updatedRecord)
+        
+        let records = RestDataManager.getRestRecords()
+        XCTAssertTrue(isEqualWithoutCheckingId(records, [updatedRecord, record2]))
+    }
+    
     private func isEqualWithoutCheckingId(_ records1: [RestRecord], _ records2: [RestRecord]) -> Bool {
         let records1WithoutId = records1.map { toRestRecordWithoutId(restRecord: $0) }
         let records2WithoutId = records2.map { toRestRecordWithoutId(restRecord: $0) }

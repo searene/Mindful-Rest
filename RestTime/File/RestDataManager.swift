@@ -25,12 +25,22 @@ struct RestDataManager {
     /// If any restRecord's id equals it, it means the restRecords hasn't been persisted into the database yet.
     static let NON_PERSISTENT_ID: Int64 = -1
     
-    static func saveRestRecord(restRecord: RestRecord) -> Void {
+    static func updateRestRecordById(restRecord: RestRecord) -> Void {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.id == restRecord.id)
+            .update(
+                restRecordDataScheme.startDate <- restRecord.startDate,
+                restRecordDataScheme.endDate <- restRecord.endDate
+            )
+        try! db.run(query)
+    }
+    
+    static func saveRestRecord(restRecord: RestRecord) -> Int64 {
         let insert = restRecordDataScheme.table.insert(
             restRecordDataScheme.startDate <- restRecord.startDate,
             restRecordDataScheme.endDate <- restRecord.endDate
         )
-        try! db.run(insert)
+        return try! db.run(insert)
     }
 
     static func getRestRecords() -> [RestRecord] {

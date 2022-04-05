@@ -37,6 +37,10 @@ struct ContentView: View {
                     buttonTitle = STOP
                     startDate = Date()
                 } else {
+                    let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                                startDate: startDate,
+                                                endDate: Date())
+                    RestDataManager.saveRestRecord(restRecord: restRecord)
                     buttonTitle = START_RESTING
                     timerString = "00:00"
                 }
