@@ -7,28 +7,11 @@
 
 import Foundation
 
-struct RestRecord: Equatable {
+struct RestRecord: Equatable, Identifiable {
+    let id: Int64
     let startDate: Date
     let endDate: Date
     
-    func toDict() -> [String: String] {
-        return ["startDate": startDate.toString(),
-                "endDate": endDate.toString()]
-    }
-    
-    static func toDicts(restRecords: [RestRecord]) -> [[String: String]] {
-        return restRecords.map { $0.toDict() }
-    }
-    
-    static func fromDicts(dicts: [[String: String]]) -> [RestRecord] {
-        return dicts.map { fromDict(dict: $0) }
-    }
-    
-    static func fromDict(dict: [String: String]) -> RestRecord {
-        let startDate = dict["startDate"]!.toDate()
-        let endDate = dict["endDate"]!.toDate()
-        return RestRecord(startDate: startDate, endDate: endDate)
-    }
 }
 
 class RestRecordService {

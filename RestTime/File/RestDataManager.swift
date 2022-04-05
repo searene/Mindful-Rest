@@ -22,6 +22,9 @@ struct RestDataManager {
     private static var db = try! Connection(dbFileUrl.path)
     private static var restRecordDataScheme = initRestRecordTable(db: db)
     
+    /// If any restRecord's id equals it, it means the restRecords hasn't been persisted into the database yet.
+    static let NON_PERSISTENT_ID: Int64 = -1
+    
     static func saveRestRecord(restRecord: RestRecord) -> Void {
         let insert = restRecordDataScheme.table.insert(
             restRecordDataScheme.startDate <- restRecord.startDate,
@@ -33,6 +36,7 @@ struct RestDataManager {
     static func getRestRecords() -> [RestRecord] {
         let res = try! db.prepare(restRecordDataScheme.table).map {
             return RestRecord(
+                id: $0[restRecordDataScheme.id],
                 startDate: $0[restRecordDataScheme.startDate],
                 endDate: $0[restRecordDataScheme.endDate]
             )
@@ -41,12 +45,14 @@ struct RestDataManager {
     }
     
     static func getRestRecordAtDay(date: Date) -> [RestRecord] {
+        let dateWithoutTime = date.onlyReserveDate()
         let query = restRecordDataScheme.table
-            .filter(restRecordDataScheme.startDate >= date && restRecordDataScheme.startDate < date.nextDay)
+            .filter(restRecordDataScheme.startDate >= dateWithoutTime && restRecordDataScheme.startDate < dateWithoutTime.nextDay)
             .order(restRecordDataScheme.startDate.desc)
         return try! db.prepare(query)
             .map {
-                return RestRecord(startDate: $0[restRecordDataScheme.startDate],
+                return RestRecord(id: $0[restRecordDataScheme.id],
+                                  startDate: $0[restRecordDataScheme.startDate],
                                   endDate: $0[restRecordDataScheme.endDate])
             }
     }

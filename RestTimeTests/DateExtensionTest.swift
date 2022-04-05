@@ -17,4 +17,12 @@ class DateExtensionTest: XCTestCase {
         
         XCTAssertEqual(durationStr, "30:00")
     }
+    
+    func testOnlyReserveDate() {
+        let date = "2020-03-10 10:00:00".toDate()
+        
+        let newDate = date.onlyReserveDate()
+        
+        XCTAssertEqual(newDate, "2020-03-10 00:00:00".toDate())
+    }
 }

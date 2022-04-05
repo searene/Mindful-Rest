@@ -9,6 +9,14 @@ import Foundation
 
 extension Date {
     
+    var previousDay: Date {
+        Calendar.current.date(byAdding: DateComponents(day:-1), to: self)!
+    }
+        
+    var nextDay: Date {
+        Calendar.current.date(byAdding: DateComponents(day:+1), to: self)!
+    }
+    
     func toString(format: DateFormatType = DateFormatType.localDateTimeSec) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format.stringFormat
@@ -25,12 +33,7 @@ extension Date {
         return "\(strMin):\(strSec)"
     }
     
-    var previousDay: Date {
-        Calendar.current.date(byAdding: DateComponents(day:-1), to: self)!
+    func onlyReserveDate() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self))!
     }
-        
-    var nextDay: Date {
-        Calendar.current.date(byAdding: DateComponents(day:+1), to: self)!
-    }
-
 }
