@@ -9,14 +9,16 @@ import SwiftUI
 
 struct MainView: View {
     
+    @StateObject private var todayRestRecords = TodayRestRecords()
+    
     var body: some View {
         TabView {
-            ContentView()
+            ContentView(todayRestRecords: todayRestRecords)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
             
-            StatView()
+            StatView(todayRestRecords: todayRestRecords)
                 .tabItem {
                     Label("Statistics", systemImage: "square.and.pencil")
                 }

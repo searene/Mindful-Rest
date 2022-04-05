@@ -19,10 +19,11 @@ struct ContentView: View {
     
     @State private var startDate = Date()
     @State private var timerString = "00:00"
+    @State private var buttonTitle: String = START_RESTING
+    
+    @ObservedObject var todayRestRecords: TodayRestRecords
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    @State var buttonTitle: String = START_RESTING
     
     var body: some View {
         VStack {
@@ -41,6 +42,7 @@ struct ContentView: View {
                                                 startDate: startDate,
                                                 endDate: Date())
                     RestDataManager.saveRestRecord(restRecord: restRecord)
+                    todayRestRecords.restRecords.insert(restRecord, at: 0)
                     buttonTitle = START_RESTING
                     timerString = "00:00"
                 }
@@ -55,8 +57,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
-                .previewInterfaceOrientation(.portraitUpsideDown)
+            ContentView(todayRestRecords: TodayRestRecords())
+                .previewInterfaceOrientation(.portrait)
         }
     }
 }

@@ -9,17 +9,22 @@ import SwiftUI
 
 struct StatView: View {
     
-    @State private var statDate: Date;
-    @State private var restRecords: [RestRecord] = [];
+    @State private var statDate: Date
+    @ObservedObject private var todayRestRecords: TodayRestRecords
     
-    init() {
+    init(todayRestRecords: TodayRestRecords) {
+        self.todayRestRecords = todayRestRecords
         let statDate = Date().onlyReserveDate()
         _statDate = State(initialValue: statDate)
-        _restRecords = State(initialValue: getRestRecords(statDate))
     }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
+        /// FIXME What should we do if the app passes the midnight?
+//        onlyKeepTodayRecords(todayRestRecords)
+        let restRecords = Date() == statDate
+                ? todayRestRecords.restRecords
+                : RestDataManager.getRestRecordAtDay(date: statDate)
+        return VStack(alignment: .center, spacing: 0) {
             DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
                 .labelsHidden()
                 .padding()
@@ -32,14 +37,16 @@ struct StatView: View {
         }
     }
     
-    private func getRestRecords(_ statDate: Date) -> [RestRecord] {
-        return RestDataManager.getRestRecordAtDay(date: statDate)
+    private func onlyKeepTodayRecords(_ todayRestRecords: TodayRestRecords) {
+        todayRestRecords.restRecords = todayRestRecords.restRecords.filter {
+            return $0.startDate < Date().nextDay.onlyReserveDate()
+        }
     }
     
 }
 
 struct StatView_Previews: PreviewProvider {
     static var previews: some View {
-        StatView()
+        StatView(todayRestRecords: TodayRestRecords())
     }
 }
