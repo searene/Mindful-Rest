@@ -12,6 +12,13 @@ struct RestRecord: Equatable, Identifiable {
     let startDate: Date
     let endDate: Date
     
+    func withNewEndDate(_ newEndDate: Date) -> RestRecord {
+        return RestRecord(id: id, startDate: startDate, endDate: newEndDate)
+    }
+    
+    func getDuration() -> Duration {
+        return Duration.fromDates(startDate, endDate)
+    }
 }
 
 class RestRecordService {
@@ -24,23 +31,6 @@ class RestRecordService {
     init(fileManager: FileManager = .default) {
         self.fileManager = fileManager
     }
-    func saveRestRecords(restRecords: [RestRecord]) {
-        
-    }
-//    func save(fileNamed: String, data: Data) throws {
-//        guard let url = makeURL(forFileNamed: fileNamed) else {
-//            throw Error.invalidDirectory
-//        }
-//        if fileManager.fileExists(atPath: url.absoluteString) {
-//            throw Error.fileAlreadyExists
-//        }
-//        do {
-//            try data.write(to: url)
-//        } catch {
-//            debugPrint(error)
-//            throw Error.writtingFailed
-//        }
-//    }
     private func getDataFilePath() -> URL {
         let folderURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         return folderURL.appendingPathComponent("rest_time.data")

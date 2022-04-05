@@ -59,12 +59,13 @@ struct RestDataManager {
         let query = restRecordDataScheme.table
             .filter(restRecordDataScheme.startDate >= dateWithoutTime && restRecordDataScheme.startDate < dateWithoutTime.nextDay)
             .order(restRecordDataScheme.startDate.desc)
-        return try! db.prepare(query)
+        let res = try! db.prepare(query)
             .map {
                 return RestRecord(id: $0[restRecordDataScheme.id],
                                   startDate: $0[restRecordDataScheme.startDate],
                                   endDate: $0[restRecordDataScheme.endDate])
             }
+        return res
     }
 
     static func resetDB() -> Void {

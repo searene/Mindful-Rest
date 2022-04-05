@@ -12,18 +12,15 @@ struct StatView: View {
     @State private var statDate = Date.now.onlyReserveDate()
     
     var body: some View {
+        let restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
         VStack(alignment: .center, spacing: 0) {
             DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
                 .labelsHidden()
                 .padding()
-            List(RestDataManager.getRestRecordAtDay(date: statDate)) { restRecord in
-                HStack(spacing: 0) {
-                    Text("\(restRecord.startDate.toString(format: .localTimeSec)) ~ \(restRecord.endDate.toString(format: .localTimeSec))")
-                    Spacer()
-                    Button("Modify", action: {
-                        
-                    })
-                }
+            Spacer()
+//            Text("total: " + \(getTotalDurationStr(restRecords))
+            List(restRecords) { restRecord in
+                StatItem(restRecord)
             }
             Spacer()
         }
