@@ -10,20 +10,16 @@ import SwiftUI
 struct StatView: View {
     
     @State private var statDate: Date
-    @ObservedObject private var todayRestRecords: TodayRestRecords
+    @ObservedObject private var latestRestRecord: LatestRestRecord
     
-    init(todayRestRecords: TodayRestRecords) {
-        self.todayRestRecords = todayRestRecords
+    init(latestRestRecord: LatestRestRecord) {
+        self.latestRestRecord = latestRestRecord
         let statDate = Date().onlyReserveDate()
         _statDate = State(initialValue: statDate)
     }
     
     var body: some View {
-        /// FIXME What should we do if the app passes the midnight?
-//        onlyKeepTodayRecords(todayRestRecords)
-        let restRecords = Date() == statDate
-                ? todayRestRecords.restRecords
-                : RestDataManager.getRestRecordAtDay(date: statDate)
+        let restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
         return VStack(alignment: .center, spacing: 0) {
             DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
                 .labelsHidden()
@@ -37,16 +33,10 @@ struct StatView: View {
         }
     }
     
-    private func onlyKeepTodayRecords(_ todayRestRecords: TodayRestRecords) {
-        todayRestRecords.restRecords = todayRestRecords.restRecords.filter {
-            return $0.startDate < Date().nextDay.onlyReserveDate()
-        }
-    }
-    
 }
 
 struct StatView_Previews: PreviewProvider {
     static var previews: some View {
-        StatView(todayRestRecords: TodayRestRecords())
+        StatView(latestRestRecord: LatestRestRecord())
     }
 }
