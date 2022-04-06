@@ -17,13 +17,28 @@ let restRecords = [RestRecord]()
 
 struct ContentView: View {
     
-    @State private var startDate = Date()
-    @State private var timerString = "00:00"
-    @State private var buttonTitle: String = START_RESTING
+    @State private var startDate: Date
+    @State private var timerString: String
+    @State private var buttonTitle: String
     
     @ObservedObject var latestRestRecord: LatestRestRecord
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init(latestRestRecord: LatestRestRecord) {
+        let ongoingRest = RestDataManager.getOngoingRest()
+        if ongoingRest != nil {
+            // Continue resting
+            startDate = ongoingRest!.startDate
+            timerString = startDate.getDurationString(endDate: Date())
+            buttonTitle = STOP
+        } else {
+            // Resting hasn't been started
+            startDate = Date()
+            timerString = "00:00"
+            buttonTitle = START_RESTING
+        }
+    }
     
     var body: some View {
         VStack {

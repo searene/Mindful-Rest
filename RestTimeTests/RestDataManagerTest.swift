@@ -93,7 +93,8 @@ class RestDataManagerTest: XCTestCase {
         XCTAssertTrue(ongoingRest == nil)
     }
     
-    /// When fetching RestRecords at a given day, if the resting starts from today and continues to tomorrow, let it ends at 23:59:59 today
+    /// When fetching RestRecords at a given day, if the resting starts from today and continues
+    /// to tomorrow, let it ends at 23:59:59 today
     func testShouldEndAtTheEndOfTodayIfRecordContinuesToTomorrow() {
         let record = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
                                  startDate: "2020-12-29 10:00:00".toDate(),
