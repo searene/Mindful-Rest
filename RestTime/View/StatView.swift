@@ -14,7 +14,7 @@ struct StatView: View {
     
     init(latestRestRecord: LatestRestRecord) {
         self.latestRestRecord = latestRestRecord
-        let statDate = Date().onlyReserveDate()
+        let statDate = Date().getStartOfDay()
         _statDate = State(initialValue: statDate)
     }
     

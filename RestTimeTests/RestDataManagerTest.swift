@@ -93,6 +93,18 @@ class RestDataManagerTest: XCTestCase {
         XCTAssertTrue(ongoingRest == nil)
     }
     
+    /// When fetching RestRecords at a given day, if the resting starts from today and continues to tomorrow, let it ends at 23:59:59 today
+    func testShouldEndAtTheEndOfTodayIfRecordContinuesToTomorrow() {
+        let record = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-29 10:00:00".toDate(),
+                                 endDate: "2020-12-30 11:00:00".toDate())
+        let recordId = RestDataManager.saveRestRecord(restRecord: record)
+        
+        let records = RestDataManager.getRestRecordAtDay(date: "2020-12-29 00:00:00".toDate())
+        
+        XCTAssertEqual(records, [RestRecord(id: recordId, startDate: "2020-12-29 10:00:00".toDate(), endDate: "2020-12-29 23:59:59".toDate())])
+    }
+    
     private func isEqualWithoutCheckingId(_ records1: [RestRecord], _ records2: [RestRecord]) -> Bool {
         let records1WithoutId = records1.map { toRestRecordWithoutId(restRecord: $0) }
         let records2WithoutId = records2.map { toRestRecordWithoutId(restRecord: $0) }

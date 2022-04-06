@@ -71,17 +71,23 @@ struct RestDataManager {
     }
     
     static func getRestRecordAtDay(date: Date) -> [RestRecord] {
-        let dateWithoutTime = date.onlyReserveDate()
+        let startOfDate = date.getStartOfDay()
         let query = restRecordDataScheme.table
-            .filter(restRecordDataScheme.startDate >= dateWithoutTime && restRecordDataScheme.startDate < dateWithoutTime.nextDay)
+            .filter(restRecordDataScheme.startDate >= startOfDate
+                    && restRecordDataScheme.startDate < startOfDate.nextDay
+                    && restRecordDataScheme.endDate != nil)
             .order(restRecordDataScheme.startDate.desc)
-        let res = try! db.prepare(query)
+        return try! db.prepare(query)
             .map {
+                let startDate: Date = $0[restRecordDataScheme.startDate]
+                var endDate: Date = $0[restRecordDataScheme.endDate]!
+                if startDate.getStartOfDay() == startOfDate && endDate.getStartOfDay() > startOfDate {
+                    endDate = startDate.getEndOfDay()
+                }
                 return RestRecord(id: $0[restRecordDataScheme.id],
-                                  startDate: $0[restRecordDataScheme.startDate],
-                                  endDate: $0[restRecordDataScheme.endDate]!)
+                                  startDate: startDate,
+                                  endDate: endDate)
             }
-        return res
     }
 
     static func resetDB() -> Void {

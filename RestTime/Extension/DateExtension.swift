@@ -33,7 +33,13 @@ extension Date {
         return "\(strMin):\(strSec)"
     }
     
-    func onlyReserveDate() -> Date {
+    func getStartOfDay() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self))!
     }
+    
+    func getEndOfDay() -> Date {
+        let components = DateComponents(hour: 23, minute: 59, second: 59)
+        return Calendar.current.date(byAdding: components, to: self.getStartOfDay())!
+    }
+    
 }
