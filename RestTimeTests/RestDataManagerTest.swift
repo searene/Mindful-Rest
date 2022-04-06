@@ -67,15 +67,6 @@ class RestDataManagerTest: XCTestCase {
         XCTAssertTrue(isEqualWithoutCheckingId(records, [updatedRecord, record2]))
     }
     
-//    func testShouldnotGetOngoingRest() {
-//
-//        let record1 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
-//                                 startDate: "2020-12-30 10:00:00".toDate(),
-//                                 endDate: "2020-12-30 11:00:00".toDate())
-//        let recordId1 = RestDataManager.saveRestRecord(restRecord: record1)
-//        let recordId2 = RestDataManager.saveRestRecord(restRecord: record2)
-//    }
-    
     func testInsertOngoingRest() {
         let startDate = "2020-12-30 10:00:00".toDate()
         RestDataManager.upsertOngoingRest(startDate: startDate)
