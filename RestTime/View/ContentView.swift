@@ -26,17 +26,18 @@ struct ContentView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     init(latestRestRecord: LatestRestRecord) {
+        self.latestRestRecord = latestRestRecord
         let ongoingRest = RestDataManager.getOngoingRest()
         if ongoingRest != nil {
             // Continue resting
-            startDate = ongoingRest!.startDate
-            timerString = startDate.getDurationString(endDate: Date())
-            buttonTitle = STOP
+            _startDate = State(initialValue: ongoingRest!.startDate)
+            _timerString = State(initialValue: ongoingRest!.startDate.getDurationString(endDate: Date()))
+            _buttonTitle = State(initialValue: STOP)
         } else {
             // Resting hasn't been started
-            startDate = Date()
-            timerString = "00:00"
-            buttonTitle = START_RESTING
+            _startDate = State(initialValue: Date())
+            _timerString = State(initialValue: "00:00")
+            _buttonTitle = State(initialValue: START_RESTING)
         }
     }
     
@@ -50,8 +51,9 @@ struct ContentView: View {
             }
             Button(buttonTitle, action: {
                 if buttonTitle == START_RESTING {
-                    buttonTitle = STOP
                     startDate = Date()
+                    RestDataManager.upsertOngoingRest(startDate: startDate)
+                    buttonTitle = STOP
                 } else {
                     let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
                                                 startDate: startDate,
