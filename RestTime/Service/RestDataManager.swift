@@ -98,6 +98,12 @@ struct RestDataManager {
         restRecordDataScheme = initRestRecordTable(db: db)
     }
     
+    static func deleteOngoingRest() -> Void {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.endDate == nil)
+        try! db.run(query.delete())
+    }
+    
     private static func getFileManager() -> FileManager {
         return FileManager.default
     }
@@ -136,11 +142,4 @@ struct RestDataManager {
         return restRecordDataScheme.table
             .filter(restRecordDataScheme.endDate != nil)
     }
-    
-    private static func deleteOngoingRest() -> Void {
-        let query = restRecordDataScheme.table
-            .filter(restRecordDataScheme.endDate == nil)
-        try! db.run(query.delete())
-    }
 }
-

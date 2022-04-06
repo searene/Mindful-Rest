@@ -58,6 +58,7 @@ struct ContentView: View {
                     let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
                                                 startDate: startDate,
                                                 endDate: Date())
+                    RestDataManager.deleteOngoingRest()
                     let id = RestDataManager.saveRestRecord(restRecord: restRecord)
                     latestRestRecord.restRecord = RestRecord(id: id, startDate: restRecord.startDate, endDate: restRecord.endDate)
                     buttonTitle = START_RESTING

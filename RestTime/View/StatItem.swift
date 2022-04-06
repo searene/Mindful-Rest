@@ -27,7 +27,7 @@ struct StatItem: View {
             Button("Modify End Time", action: {
                 showEndDatePicker = true
             })
-            if showEndDatePicker {
+            .popover(isPresented: $showEndDatePicker) {
                 DatePicker("Please enter the end date", selection: $endDate)
                     .labelsHidden()
                     .padding()

@@ -106,6 +106,19 @@ class RestDataManagerTest: XCTestCase {
         XCTAssertEqual(records, [RestRecord(id: recordId, startDate: "2020-12-29 10:00:00".toDate(), endDate: "2020-12-29 23:59:59".toDate())])
     }
     
+    func testDeleteOngoingRest() {
+        let record1 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-29 10:00:00".toDate(),
+                                 endDate: "2020-12-30 11:00:00".toDate())
+        RestDataManager.saveRestRecord(restRecord: record1)
+        RestDataManager.upsertOngoingRest(startDate: Date())
+        
+        RestDataManager.deleteOngoingRest()
+        
+        let ongoingRest = RestDataManager.getOngoingRest()
+        XCTAssertNil(ongoingRest)
+    }
+    
     private func isEqualWithoutCheckingId(_ records1: [RestRecord], _ records2: [RestRecord]) -> Bool {
         let records1WithoutId = records1.map { toRestRecordWithoutId(restRecord: $0) }
         let records2WithoutId = records2.map { toRestRecordWithoutId(restRecord: $0) }
