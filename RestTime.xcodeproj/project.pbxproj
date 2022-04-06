@@ -30,6 +30,7 @@
 		D4E7BFCF27FC0DA600A147D9 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFCE27FC0DA600A147D9 /* Duration.swift */; };
 		D4E7BFD127FC0DE100A147D9 /* DurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD027FC0DE000A147D9 /* DurationTest.swift */; };
 		D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */; };
+		D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		D4A53B3427FA9C54004A0F4C /* DictExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictExtension.swift; sourceTree = "<group>"; };
 		D4A53B3627FA9CB3004A0F4C /* DictExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictExtensionTest.swift; sourceTree = "<group>"; };
 		D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
-		D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestDataManagerTest.swift; path = RestTimeTests/RestDataManagerTest.swift; sourceTree = "<group>"; };
+		D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestDataManagerTest.swift; sourceTree = "<group>"; };
 		D4A53B3D27FACB24004A0F4C /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		D4A53B3F27FB24A6004A0F4C /* DateExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTest.swift; sourceTree = "<group>"; };
 		D4A53B4127FB3810004A0F4C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		D4E7BFCE27FC0DA600A147D9 /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		D4E7BFD027FC0DE000A147D9 /* DurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationTest.swift; sourceTree = "<group>"; };
 		D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRestRecord.swift; sourceTree = "<group>"; };
+		D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingRest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,6 @@
 		D4090BE127F88FC80068E4C5 = {
 			isa = PBXGroup;
 			children = (
-				D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */,
 				D4090BEC27F88FC80068E4C5 /* RestTime */,
 				D4A53B1E27FA88AF004A0F4C /* RestTimeTests */,
 				D4090BEB27F88FC80068E4C5 /* Products */,
@@ -110,11 +111,11 @@
 		D4090BEC27F88FC80068E4C5 /* RestTime */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7BFD527FD16E300A147D9 /* Service */,
 				D4E7BFD227FC80F400A147D9 /* Observe */,
 				D4E7BFCD27FC0D9300A147D9 /* Domain */,
 				D4A53B4527FB38E8004A0F4C /* View */,
 				D4A53B3C27FACB16004A0F4C /* Util */,
-				D4A53B3127FA99AD004A0F4C /* File */,
 				D4A53B2827FA8B47004A0F4C /* Extension */,
 				D4090BED27F88FC80068E4C5 /* RestTimeApp.swift */,
 				D4090BF127F88FCA0068E4C5 /* Assets.xcassets */,
@@ -134,6 +135,7 @@
 		D4A53B1E27FA88AF004A0F4C /* RestTimeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4A53B3A27FAA55F004A0F4C /* RestDataManagerTest.swift */,
 				D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */,
 				D4A53B3627FA9CB3004A0F4C /* DictExtensionTest.swift */,
 				D4A53B3827FAA023004A0F4C /* StringExtensionTest.swift */,
@@ -151,14 +153,6 @@
 				D4A53B3427FA9C54004A0F4C /* DictExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		D4A53B3127FA99AD004A0F4C /* File */ = {
-			isa = PBXGroup;
-			children = (
-				D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */,
-			);
-			path = File;
 			sourceTree = "<group>";
 		};
 		D4A53B3C27FACB16004A0F4C /* Util */ = {
@@ -184,8 +178,10 @@
 		D4E7BFCD27FC0D9300A147D9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */,
 				D4A53AC427F9D905004A0F4C /* RestRecord.swift */,
 				D4E7BFCE27FC0DA600A147D9 /* Duration.swift */,
+				D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -193,9 +189,16 @@
 		D4E7BFD227FC80F400A147D9 /* Observe */ = {
 			isa = PBXGroup;
 			children = (
-				D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */,
 			);
 			path = Observe;
+			sourceTree = "<group>";
+		};
+		D4E7BFD527FD16E300A147D9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +313,7 @@
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
 				D4E7BFCF27FC0DA600A147D9 /* Duration.swift in Sources */,
+				D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */,
 				D4E7BFCC27FBFF6300A147D9 /* StatItem.swift in Sources */,
 				D4A53B4227FB3810004A0F4C /* MainView.swift in Sources */,
 				D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */,

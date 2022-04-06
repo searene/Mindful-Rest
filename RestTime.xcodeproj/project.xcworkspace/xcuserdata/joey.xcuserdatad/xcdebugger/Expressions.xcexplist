@@ -11,6 +11,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in StatView.body.getter:StatView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in closure #1 in ContentView.body.getter:ContentView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "StatView.init(todayRestRecords:):StatView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RestDataManagerTest.testInsertOngoingRest():RestDataManagerTest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ongoingRest != nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in StatView.body.getter:StatView.swift">
          <PersistentStrings>
             <PersistentString
@@ -19,16 +36,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "StatView.init(todayRestRecords:):StatView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in StatView.body.getter:StatView.swift">
-      </ContextState>
-      <ContextState
          contextName = "StatItem.init(_:):StatItem.swift">
       </ContextState>
       <ContextState
-         contextName = "closure #2 in closure #1 in ContentView.body.getter:ContentView.swift">
+         contextName = "static RestDataManager.getOngoingRest():RestDataManager.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

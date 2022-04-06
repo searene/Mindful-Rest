@@ -9,10 +9,10 @@ import Foundation
 import SQLite
 
 struct RestRecordDataScheme {
-    let table: Table;
-    let id: Expression<Int64>;
-    let startDate: Expression<Date>;
-    let endDate: Expression<Date>;
+    let table: Table
+    let id: Expression<Int64>
+    let startDate: Expression<Date>
+    let endDate: Expression<Date?>
 }
 
 struct RestDataManager {
@@ -44,14 +44,30 @@ struct RestDataManager {
     }
 
     static func getRestRecords() -> [RestRecord] {
-        let res = try! db.prepare(restRecordDataScheme.table).map {
+        return try! db.prepare(getBaiscRestRecordQuery()).map {
             return RestRecord(
                 id: $0[restRecordDataScheme.id],
                 startDate: $0[restRecordDataScheme.startDate],
-                endDate: $0[restRecordDataScheme.endDate]
+                endDate: $0[restRecordDataScheme.endDate]!
             )
         }
-        return res
+    }
+    
+    static func upsertOngoingRest(startDate: Date) -> Void {
+        deleteOngoingRest()
+        try! db.run(restRecordDataScheme.table.insert(
+            restRecordDataScheme.startDate <- startDate))
+    }
+    
+    static func getOngoingRest() -> OngoingRest? {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.endDate === nil)
+        // FIXME return nil when empty
+        let queryRes = try! db.pluck(query)
+        if queryRes == nil {
+            return nil
+        }
+        return OngoingRest(startDate: queryRes![restRecordDataScheme.startDate])
     }
     
     static func getRestRecordAtDay(date: Date) -> [RestRecord] {
@@ -63,7 +79,7 @@ struct RestDataManager {
             .map {
                 return RestRecord(id: $0[restRecordDataScheme.id],
                                   startDate: $0[restRecordDataScheme.startDate],
-                                  endDate: $0[restRecordDataScheme.endDate])
+                                  endDate: $0[restRecordDataScheme.endDate]!)
             }
         return res
     }
@@ -88,14 +104,14 @@ struct RestDataManager {
     }
     
     private static func initRestRecordTable(db: Connection) -> RestRecordDataScheme {
-        return createTableIfNotExists(db: db)
+        return createRestRecordTableIfNotExists(db: db)
     }
     
-    private static func createTableIfNotExists(db: Connection) -> RestRecordDataScheme {
+    private static func createRestRecordTableIfNotExists(db: Connection) -> RestRecordDataScheme {
         let restRecords = Table("rest_records")
         let id = Expression<Int64>("id")
         let startDate = Expression<Date>("startDate")
-        let endDate = Expression<Date>("endDate")
+        let endDate = Expression<Date?>("endDate")
         
         try! db.run(restRecords.create(ifNotExists: true) { t in
             t.column(id, primaryKey: true)
@@ -110,5 +126,15 @@ struct RestDataManager {
         )
     }
     
+    private static func getBaiscRestRecordQuery() -> QueryType {
+        return restRecordDataScheme.table
+            .filter(restRecordDataScheme.endDate != nil)
+    }
+    
+    private static func deleteOngoingRest() -> Void {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.endDate == nil)
+        try! db.run(query.delete())
+    }
 }
 
