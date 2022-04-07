@@ -104,6 +104,12 @@ struct RestDataManager {
         try! db.run(query.delete())
     }
     
+    static func deleteRestRecordById(restRecordId: Int64) -> Void {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.id == restRecordId)
+        try! db.run(query.delete())
+    }
+    
     private static func getFileManager() -> FileManager {
         return FileManager.default
     }
