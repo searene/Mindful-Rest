@@ -24,25 +24,33 @@ struct StatItem: View {
         HStack(spacing: 0) {
             Text("\(startDate.toString(format: .localTimeSec)) ~ \(endDate.toString(format: .localTimeSec))")
             Spacer()
-            Button("Modify End Time", action: {
+        }
+        .swipeActions(allowsFullSwipe: false) {
+            Button("Delete", role: .destructive, action: {
+                // FIXME
+            })
+            
+            Button("Modify", action: {
                 showEndDatePicker = true
             })
-            .popover(isPresented: $showEndDatePicker) {
-                DatePicker("Please enter the end date", selection: $endDate)
-                    .labelsHidden()
-                    .padding()
-                    .onChange(of: endDate, perform: { selectedEndDate in
-                        /// FIXME difference between the two parameters?
-                        let restRecord = RestRecord(
-                            id: restRecordId,
-                            startDate: startDate,
-                            endDate: selectedEndDate)
-                        RestDataManager.updateRestRecordById(restRecord: restRecord)
-                    })
-                Button("OK", action: {
-                    showEndDatePicker = false
+            .tint(.green)
+        }
+        .popover(isPresented: $showEndDatePicker) {
+            Text("Please enter the end time")
+            DatePicker("Please enter the end time", selection: $endDate)
+                .labelsHidden()
+                .padding()
+                .onChange(of: endDate, perform: { selectedEndDate in
+                    /// FIXME difference between the two parameters?
+                    let restRecord = RestRecord(
+                        id: restRecordId,
+                        startDate: startDate,
+                        endDate: selectedEndDate)
+                    RestDataManager.updateRestRecordById(restRecord: restRecord)
                 })
-            }
+            Button("OK", action: {
+                showEndDatePicker = false
+            })
         }
     }
 }
