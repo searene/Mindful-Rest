@@ -11,13 +11,15 @@ struct StatItem: View {
     
     private let restRecordId: Int64
     private let startDate: Date
+    private let removeItemHandler: (_ restRecordId: Int64) -> Void
     @State private var endDate: Date
     @State private var showEndDatePicker = false
     
-    init(_ restRecord: RestRecord) {
+    init(_ restRecord: RestRecord, _ removeItemHandler: @escaping (_ restRecordId: Int64) -> Void) {
         restRecordId = restRecord.id
         startDate = restRecord.startDate
         _endDate = State(initialValue: restRecord.endDate)
+        self.removeItemHandler = removeItemHandler
     }
     
     var body: some View {
@@ -27,7 +29,7 @@ struct StatItem: View {
         }
         .swipeActions(allowsFullSwipe: false) {
             Button("Delete", role: .destructive, action: {
-                // FIXME
+                removeItemHandler(restRecordId)
             })
             
             Button("Modify", action: {
@@ -61,6 +63,8 @@ struct StatItem_Previews: PreviewProvider {
             id: 1,
             startDate: "2020-03-20 10:00:00".toDate(),
             endDate: "2020-03-21 11:00:00".toDate()
-        ))
+        ), {
+            print($0)
+        })
     }
 }

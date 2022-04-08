@@ -11,6 +11,7 @@ struct StatView: View {
     
     @State private var statDate: Date
     @ObservedObject private var latestRestRecord: LatestRestRecord
+    @State private var restRecords: [RestRecord] = []
     
     init(latestRestRecord: LatestRestRecord) {
         self.latestRestRecord = latestRestRecord
@@ -19,17 +20,25 @@ struct StatView: View {
     }
     
     var body: some View {
-        let restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
         return VStack(alignment: .center, spacing: 0) {
             DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
                 .labelsHidden()
                 .padding()
+                .onChange(of: statDate, perform: {
+                    restRecords = RestDataManager.getRestRecordAtDay(date: $0)
+                })
             Spacer()
             Text("total: \(RestRecord.getTotalDuration(restRecords).toString())")
             List(restRecords) { restRecord in
-                StatItem(restRecord)
+                StatItem(restRecord, { restRecordId in
+                    RestDataManager.deleteRestRecordById(restRecordId: restRecord.id)
+                    restRecords = restRecords.filter { $0.id != restRecordId }
+                })
             }
             Spacer()
+        }
+        .onAppear {
+            restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
         }
     }
     
