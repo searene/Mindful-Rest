@@ -52,27 +52,15 @@ struct Duration: Equatable {
     }
     
     private func getHoursStr(_ hours: Int) -> String {
-        if hours <= 1 {
-            return String(hours) + " hour"
-        } else {
-            return String(hours) + " hours"
-        }
+        return String(hours) + " h"
     }
     
     private func getMinutesStr(_ minutes: Int) -> String {
-        if minutes <= 1 {
-            return String(minutes) + " minute"
-        } else {
-            return String(minutes) + " minutes"
-        }
+        return String(minutes) + " m"
     }
     
     private func getSecondsStr(_ seconds: Int) -> String {
-        if seconds <= 1 {
-            return String(seconds) + " second"
-        } else {
-            return String(seconds) + " seconds"
-        }
+        return String(seconds) + " s"
     }
     
     private func toStr(_ num: Int) -> String {

@@ -25,8 +25,16 @@ struct StatView: View {
                 .onChange(of: statDate, perform: {
                     restRecords = RestDataManager.getRestRecordAtDay(date: $0)
                 })
-            Spacer()
-            Text("total: \(RestRecord.getTotalDuration(restRecords).getFullDescription())")
+            Spacer(minLength: 30)
+            HStack {
+                Text("TOTAL:")
+                    .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                    .foregroundColor(Color(hex: 0xc3c3c3))
+                Text("\(RestRecord.getTotalDuration(restRecords).getFullDescription())")
+                    .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                    .foregroundColor(Color(hex: 0x818589))
+            }
+            Spacer(minLength: 40)
             List(restRecords) { restRecord in
                 StatItem(restRecord, { restRecordId in
                     RestDataManager.deleteRestRecordById(restRecordId: restRecord.id)
