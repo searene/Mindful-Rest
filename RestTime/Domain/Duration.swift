@@ -27,7 +27,7 @@ struct Duration: Equatable {
         return Duration(durationInSeconds: seconds)
     }
     
-    func toString() -> String {
+    func getFullDescription() -> String {
         let hoursStr = getHoursStr(hours)
         let minutesStr = getMinutesStr(minutes)
         let secondsStr = getSecondsStr(seconds)
@@ -38,6 +38,13 @@ struct Duration: Equatable {
         } else {
             return "\(secondsStr)"
         }
+    }
+    
+    func getShortDescription() -> String {
+        if durationInSeconds < 60 {
+            return "\(durationInSeconds) seconds"
+        }
+        return "\(durationInSeconds / 60) minutes"
     }
     
     static func +(left: Duration, right: Duration) -> Duration {

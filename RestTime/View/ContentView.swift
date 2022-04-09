@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-let START_RESTING: String = "Start Resting"
-let STOP: String = "Stop"
+let START_RESTING: String = "START RESTING"
+let STOP: String = "STOP"
 
 let fileManager: FileManager = .default
 let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -20,10 +20,9 @@ struct ContentView: View {
     @State private var startDate: Date
     @State private var timerString: String
     @State private var buttonTitle: String
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @ObservedObject var latestRestRecord: LatestRestRecord
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     init(latestRestRecord: LatestRestRecord) {
         self.latestRestRecord = latestRestRecord
@@ -43,17 +42,18 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if buttonTitle == STOP {
-                Text("\(timerString)")
-                    .onReceive(timer) { input in
-                        timerString = startDate.getDurationString(endDate: Date())
-                    }
-            }
+            Text("\(timerString)")
+                .foregroundColor(.blue)
+                .font(.system(size: 70))
+                .onReceive(timer) { input in
+                    timerString = buttonTitle == START_RESTING ? "00:00" : startDate.getDurationString(endDate: Date())
+                }
             Button(buttonTitle, action: {
                 if buttonTitle == START_RESTING {
                     startDate = Date()
                     RestDataManager.upsertOngoingRest(startDate: startDate)
                     buttonTitle = STOP
+                    startTimer()
                 } else {
                     let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
                                                 startDate: startDate,
@@ -63,12 +63,21 @@ struct ContentView: View {
                     latestRestRecord.restRecord = RestRecord(id: id, startDate: restRecord.startDate, endDate: restRecord.endDate)
                     buttonTitle = START_RESTING
                     timerString = "00:00"
+                    stopTimer()
                 }
             })
             .tint(.blue)
             .controlSize(.large)
             .buttonStyle(.borderedProminent)
         }
+    }
+    
+    private func stopTimer() {
+        self.timer.upstream.connect().cancel()
+    }
+    
+    private func startTimer() {
+        self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
 }
 

@@ -26,6 +26,9 @@ struct StatItem: View {
         HStack(spacing: 0) {
             Text("\(startDate.toString(format: .localTimeSec)) ~ \(endDate.toString(format: .localTimeSec))")
             Spacer()
+            Text(Duration.fromDates(startDate, endDate).getShortDescription())
+               .padding(10)
+               .background(Color.yellow)
         }
         .swipeActions(allowsFullSwipe: false) {
             Button("Delete", role: .destructive, action: {
@@ -43,12 +46,12 @@ struct StatItem: View {
                 .labelsHidden()
                 .padding()
                 .onChange(of: endDate, perform: { selectedEndDate in
-                    /// FIXME difference between the two parameters?
                     let restRecord = RestRecord(
                         id: restRecordId,
                         startDate: startDate,
                         endDate: selectedEndDate)
                     RestDataManager.updateRestRecordById(restRecord: restRecord)
+                    // FIXME Also need to update the total rest time
                 })
             Button("OK", action: {
                 showEndDatePicker = false
@@ -62,7 +65,7 @@ struct StatItem_Previews: PreviewProvider {
         StatItem(RestRecord(
             id: 1,
             startDate: "2020-03-20 10:00:00".toDate(),
-            endDate: "2020-03-21 11:00:00".toDate()
+            endDate: "2020-03-20 11:00:00".toDate()
         ), {
             print($0)
         })

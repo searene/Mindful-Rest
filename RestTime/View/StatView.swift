@@ -21,18 +21,17 @@ struct StatView: View {
     
     var body: some View {
         return VStack(alignment: .center, spacing: 0) {
-            DatePicker("Please enter a date", selection: $statDate, displayedComponents: .date)
-                .labelsHidden()
-                .padding()
+            StyledDatePicker(selectedDate: $statDate)
                 .onChange(of: statDate, perform: {
                     restRecords = RestDataManager.getRestRecordAtDay(date: $0)
                 })
             Spacer()
-            Text("total: \(RestRecord.getTotalDuration(restRecords).toString())")
+            Text("total: \(RestRecord.getTotalDuration(restRecords).getFullDescription())")
             List(restRecords) { restRecord in
                 StatItem(restRecord, { restRecordId in
                     RestDataManager.deleteRestRecordById(restRecordId: restRecord.id)
                     restRecords = restRecords.filter { $0.id != restRecordId }
+                    // FIXME Also need to update the total rest time
                 })
             }
             Spacer()

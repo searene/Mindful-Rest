@@ -13,7 +13,7 @@ class DurationTest: XCTestCase {
     func testGetDurationStringWithSeconds() {
         let duration = Duration(durationInSeconds: 30)
         
-        let durationString = duration.toString()
+        let durationString = duration.getFullDescription()
         
         XCTAssertEqual(durationString, "30 seconds")
     }
@@ -21,7 +21,7 @@ class DurationTest: XCTestCase {
     func testGetDurationStringWithMinutes() {
         let duration = Duration(durationInSeconds: 100)
         
-        let durationString = duration.toString()
+        let durationString = duration.getFullDescription()
         
         XCTAssertEqual(durationString, "1 minute 40 seconds")
     }
@@ -29,7 +29,7 @@ class DurationTest: XCTestCase {
     func testGetDurationStringWithHours() {
         let duration = Duration(durationInSeconds: 3710)
         
-        let durationString = duration.toString()
+        let durationString = duration.getFullDescription()
         
         XCTAssertEqual(durationString, "1 hour 1 minute 50 seconds")
     }
@@ -41,6 +41,22 @@ class DurationTest: XCTestCase {
         let d = d1 + d2
         
         XCTAssertEqual(d.durationInSeconds, 30)
+    }
+    
+    func testGetShortDescriptionForSeconds() {
+        let duration = Duration(durationInSeconds: 30)
+        
+        let shortDesc = duration.getShortDescription()
+        
+        XCTAssertEqual(shortDesc, "30 seconds")
+    }
+    
+    func testGetShortDescriptionForMinutes() {
+        let duration = Duration(durationInSeconds: 150)
+        
+        let shortDesc = duration.getShortDescription()
+        
+        XCTAssertEqual(shortDesc, "2 minutes")
     }
 
 }

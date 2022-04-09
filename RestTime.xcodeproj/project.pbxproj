@@ -31,6 +31,7 @@
 		D4E7BFD127FC0DE100A147D9 /* DurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD027FC0DE000A147D9 /* DurationTest.swift */; };
 		D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */; };
 		D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */; };
+		D4E7BFDE28012F8700A147D9 /* StyledDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFDD28012F8700A147D9 /* StyledDatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		D4E7BFD027FC0DE000A147D9 /* DurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationTest.swift; sourceTree = "<group>"; };
 		D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRestRecord.swift; sourceTree = "<group>"; };
 		D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingRest.swift; sourceTree = "<group>"; };
+		D4E7BFDD28012F8700A147D9 /* StyledDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		D4090BEC27F88FC80068E4C5 /* RestTime */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7BFDA28012EFC00A147D9 /* DatePicker */,
 				D4E7BFD527FD16E300A147D9 /* Service */,
 				D4E7BFD227FC80F400A147D9 /* Observe */,
 				D4E7BFCD27FC0D9300A147D9 /* Domain */,
@@ -199,6 +202,14 @@
 				D4A53B3227FA99C1004A0F4C /* RestDataManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D4E7BFDA28012EFC00A147D9 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7BFDD28012F8700A147D9 /* StyledDatePicker.swift */,
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,7 @@
 			files = (
 				D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */,
 				D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */,
+				D4E7BFDE28012F8700A147D9 /* StyledDatePicker.swift in Sources */,
 				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
