@@ -32,6 +32,7 @@
 		D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */; };
 		D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */; };
 		D4E7BFDE28012F8700A147D9 /* StyledDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFDD28012F8700A147D9 /* StyledDatePicker.swift */; };
+		D4E7BFFE2801919900A147D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7BFFD2801919900A147D9 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D4E7BFD327FC811800A147D9 /* LatestRestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRestRecord.swift; sourceTree = "<group>"; };
 		D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingRest.swift; sourceTree = "<group>"; };
 		D4E7BFDD28012F8700A147D9 /* StyledDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledDatePicker.swift; sourceTree = "<group>"; };
+		D4E7BFFD2801919900A147D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				D4A53B2927FA8B64004A0F4C /* StringExtension.swift */,
 				D4A53B2F27FA92F5004A0F4C /* DateExtension.swift */,
 				D4A53B3427FA9C54004A0F4C /* DictExtension.swift */,
+				D4E7BFFD2801919900A147D9 /* ColorExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
+				D4E7BFFE2801919900A147D9 /* ColorExtension.swift in Sources */,
 				D4E7BFCF27FC0DA600A147D9 /* Duration.swift in Sources */,
 				D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */,
 				D4E7BFCC27FBFF6300A147D9 /* StatItem.swift in Sources */,

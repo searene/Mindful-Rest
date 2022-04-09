@@ -16,9 +16,26 @@ struct StyledDatePicker: View {
     }
     
     var body: some View {
-        DatePicker("Please select the date", selection: $selectedDate, displayedComponents: .date)
-            .labelsHidden()
-            .padding()
+        HStack {
+            Spacer()
+            Image(systemName: "arrowtriangle.left.fill")
+                .foregroundColor(Color(hex: 0xc4c4c4))
+                .scaleEffect(1.5)
+                .onTapGesture {
+                    selectedDate = selectedDate.previousDay
+                }
+            DatePicker("Please select the date", selection: $selectedDate, displayedComponents: .date)
+                .labelsHidden()
+                .padding()
+                .id(selectedDate)
+            Image(systemName: "arrowtriangle.right.fill")
+                .foregroundColor(Color(hex: 0xc4c4c4))
+                .scaleEffect(1.5)
+                .onTapGesture {
+                    selectedDate = selectedDate.nextDay
+                }
+            Spacer()
+        }
     }
 }
 
