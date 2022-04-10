@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// FIXME automatically select the next when passes the midnight
 struct StatView: View {
     
     @State private var statDate: Date
@@ -34,18 +35,30 @@ struct StatView: View {
                     .font(Font.custom("BalooBhaijaan-Regular", size: 20))
                     .foregroundColor(Color(hex: 0x818589))
             }
-            Spacer(minLength: 40)
-            List(restRecords) { restRecord in
-                StatItem(restRecord, { restRecordId in
-                    RestDataManager.deleteRestRecordById(restRecordId: restRecord.id)
-                    restRecords = restRecords.filter { $0.id != restRecordId }
-                    // FIXME Also need to update the total rest time
-                })
+            // FIXME make the top distance the same as the bottom distance
+            Spacer(minLength: 30)
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 0) {
+                    if restRecords.count > 0 {
+                        ForEach((0...restRecords.count - 1), id: \.self) { recordId in
+                            StatItem(restRecords[recordId], isLastOne: recordId == restRecords.count - 1, { restRecordId in
+                                RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
+                                restRecords = restRecords.filter { $0.id != restRecordId }
+                                // FIXME Also need to update the total rest time
+                            })
+                        }
+                    }
+                }
             }
             Spacer()
         }
         .onAppear {
             restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
+//                    restRecords = [
+//                        RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
+//                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
+//                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
+//                    ]
         }
     }
     

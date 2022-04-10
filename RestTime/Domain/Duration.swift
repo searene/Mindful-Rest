@@ -27,6 +27,7 @@ struct Duration: Equatable {
         return Duration(durationInSeconds: seconds)
     }
     
+    // FIXME convert 1h 0m 0s to 1h
     func getFullDescription() -> String {
         let hoursStr = getHoursStr(hours)
         let minutesStr = getMinutesStr(minutes)
@@ -42,9 +43,9 @@ struct Duration: Equatable {
     
     func getShortDescription() -> String {
         if durationInSeconds < 60 {
-            return "\(durationInSeconds) seconds"
+            return "\(durationInSeconds)s"
         }
-        return "\(durationInSeconds / 60) minutes"
+        return "\(durationInSeconds / 60)m"
     }
     
     static func +(left: Duration, right: Duration) -> Duration {
@@ -52,15 +53,15 @@ struct Duration: Equatable {
     }
     
     private func getHoursStr(_ hours: Int) -> String {
-        return String(hours) + " h"
+        return String(hours) + "h"
     }
     
     private func getMinutesStr(_ minutes: Int) -> String {
-        return String(minutes) + " m"
+        return String(minutes) + "m"
     }
     
     private func getSecondsStr(_ seconds: Int) -> String {
-        return String(seconds) + " s"
+        return String(seconds) + "s"
     }
     
     private func toStr(_ num: Int) -> String {
