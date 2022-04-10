@@ -41,7 +41,7 @@ struct StatItem: View {
     @ViewBuilder
     private func getStartDateText(startDate: Date) -> some View {
         Text("\(startDate.toString(format: .hourAndMinute))")
-            .frame(width: 100)
+            .frame(width: 80)
             .foregroundColor(Color(hex: 0x818589))
     }
     
@@ -49,7 +49,7 @@ struct StatItem: View {
         return Text(Duration.fromDates(startDate, endDate).getFullDescription())
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.yellow)
+            .background(.white)
             .font(Font.custom("Rubik-Regular", size: 16))
             .swipeActions(allowsFullSwipe: false) {
                 Button("Delete", role: .destructive, action: {
@@ -84,18 +84,22 @@ struct StatItem: View {
         return Color(hex: 0xc5c5c5)
             .frame(width: 1, height: 30)
             .padding(.top, -5)
-            .padding(.leading, 50)
+            .padding(.leading, 40)
     }
 }
 
 struct StatItem_Previews: PreviewProvider {
     static var previews: some View {
-        StatItem(RestRecord(
-            id: 1,
-            startDate: "2020-03-20 10:00:00".toDate(),
-            endDate: "2020-03-20 11:00:00".toDate()
-        ), isLastOne: false, {
-            print($0)
-        })
+        VStack {
+            StatItem(RestRecord(
+                id: 1,
+                startDate: "2020-03-20 10:00:00".toDate(),
+                endDate: "2020-03-20 11:00:00".toDate()
+            ), isLastOne: false, {
+                print($0)
+            })
+            .padding(.top, 20)
+        }
+        .background(Color(hex: 0xf5f5f5))
     }
 }

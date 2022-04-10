@@ -49,7 +49,9 @@ struct StatView: View {
                         }
                     }
                 }
+                .padding(.top, 20)
             }
+            .background(Color(hex: 0xf5f5f5))
             Spacer()
         }
         .onAppear {
