@@ -15,6 +15,7 @@ struct StatItem: View {
     @State private var endDate: Date
     @State private var showEndDatePicker = false
     @State private var showOptionsPopover = false
+    
     private let isLastOne: Bool
     
     init(_ restRecord: RestRecord, isLastOne: Bool, _ removeItemHandler: @escaping (_ restRecordId: Int64) -> Void) {

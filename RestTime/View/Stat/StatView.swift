@@ -27,41 +27,52 @@ struct StatView: View {
                     restRecords = RestDataManager.getRestRecordAtDay(date: $0)
                 })
             Spacer(minLength: 30)
-            HStack {
-                Text("TOTAL:")
-                    .font(Font.custom("BalooBhaijaan-Regular", size: 20))
-                    .foregroundColor(Color(hex: 0xc3c3c3))
-                Text("\(RestRecord.getTotalDuration(restRecords).getFullDescription())")
-                    .font(Font.custom("BalooBhaijaan-Regular", size: 20))
-                    .foregroundColor(Color(hex: 0x818589))
-            }
             // FIXME make the top distance the same as the bottom distance
+            getTotalView(restRecords)
             Spacer(minLength: 30)
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 0) {
-                    if restRecords.count > 0 {
-                        ForEach((0...restRecords.count - 1), id: \.self) { recordId in
-                            StatItem(restRecords[recordId], isLastOne: recordId == restRecords.count - 1, { restRecordId in
-                                RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
-                                restRecords = restRecords.filter { $0.id != restRecordId }
-                                // FIXME Also need to update the total rest time
-                            })
-                        }
-                    }
-                }
-                .padding(.top, 20)
-            }
-            .background(Color(hex: 0xf5f5f5))
+            getStatItemsView()
             Spacer()
         }
         .onAppear {
-            restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
-//                    restRecords = [
-//                        RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
-//                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
-//                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
-//                    ]
+//            restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
+                    restRecords = [
+                        RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
+                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
+                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
+                    ]
         }
+    }
+    
+    @ViewBuilder
+    private func getStatItemsView() -> some View {
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 0) {
+                if restRecords.count > 0 {
+                    ForEach((0...restRecords.count - 1), id: \.self) { recordId in
+                        StatItem(restRecords[recordId], isLastOne: recordId == restRecords.count - 1, { restRecordId in
+                            RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
+                            self.restRecords = restRecords.filter { $0.id != restRecordId }
+                            // FIXME Also need to update the total rest time
+                        })
+                    }
+                }
+            }
+            .padding(.top, 20)
+        }
+        .background(Color(hex: 0xf5f5f5))
+    }
+    
+    @ViewBuilder
+    private func getTotalView(_ restRecords: [RestRecord]) -> some View {
+        HStack {
+            Text("TOTAL:")
+                .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                .foregroundColor(Color(hex: 0xc3c3c3))
+            Text("\(RestRecord.getTotalDuration(restRecords).getFullDescription())")
+                .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                .foregroundColor(Color(hex: 0x818589))
+        }
+        
     }
     
 }
