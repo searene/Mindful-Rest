@@ -22,10 +22,7 @@ struct StatView: View {
     
     var body: some View {
         return VStack(alignment: .center, spacing: 0) {
-            StyledDatePicker(selectedDate: $statDate)
-                .onChange(of: statDate, perform: {
-                    restRecords = RestDataManager.getRestRecordAtDay(date: $0)
-                })
+            getDatePickerView()
             Spacer(minLength: 30)
             // FIXME make the top distance the same as the bottom distance
             getTotalView(restRecords)
@@ -41,6 +38,14 @@ struct StatView: View {
                         RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
                     ]
         }
+    }
+    
+    @ViewBuilder
+    private func getDatePickerView() -> some View {
+        StyledDatePicker(selectedDate: $statDate)
+            .onChange(of: statDate, perform: {
+                restRecords = RestDataManager.getRestRecordAtDay(date: $0)
+            })
     }
     
     @ViewBuilder
