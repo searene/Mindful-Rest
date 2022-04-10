@@ -76,7 +76,7 @@ struct RestDataManager {
             .filter(restRecordDataScheme.startDate >= startOfDate
                     && restRecordDataScheme.startDate < startOfDate.nextDay
                     && restRecordDataScheme.endDate != nil)
-            .order(restRecordDataScheme.startDate.desc)
+            .order(restRecordDataScheme.startDate.asc)
         return try! db.prepare(query)
             .map {
                 let startDate: Date = $0[restRecordDataScheme.startDate]
