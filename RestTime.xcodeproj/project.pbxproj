@@ -11,6 +11,8 @@
 		D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4090BEF27F88FC80068E4C5 /* ContentView.swift */; };
 		D4090BF227F88FCA0068E4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF127F88FCA0068E4C5 /* Assets.xcassets */; };
 		D4090BF527F88FCA0068E4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */; };
+		D4214FEE28030B110011449C /* BottomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* BottomCard.swift */; };
+		D4214FF22803146B0011449C /* StatItemBottomCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */; };
 		D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53AC427F9D905004A0F4C /* RestRecord.swift */; };
 		D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */; };
 		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
@@ -62,6 +64,8 @@
 		D4090BEF27F88FC80068E4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D4214FED28030B110011449C /* BottomCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCard.swift; sourceTree = "<group>"; };
+		D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemBottomCardContent.swift; sourceTree = "<group>"; };
 		D4A53AC427F9D905004A0F4C /* RestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecord.swift; sourceTree = "<group>"; };
 		D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecordTest.swift; sourceTree = "<group>"; };
@@ -162,6 +166,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D4214FEC28030AFC0011449C /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				D4214FED28030B110011449C /* BottomCard.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		D4214FEF280314400011449C /* Stat */ = {
+			isa = PBXGroup;
+			children = (
+				D4214FF02803144D0011449C /* Item */,
+				D4A53B4327FB386C004A0F4C /* StatView.swift */,
+			);
+			path = Stat;
+			sourceTree = "<group>";
+		};
+		D4214FF02803144D0011449C /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7BFCB27FBFF6300A147D9 /* StatItem.swift */,
+				D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		D4A53B1E27FA88AF004A0F4C /* RestTimeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,10 +228,10 @@
 		D4A53B4527FB38E8004A0F4C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4214FEC28030AFC0011449C /* Card */,
+				D4214FEF280314400011449C /* Stat */,
 				D4090BEF27F88FC80068E4C5 /* ContentView.swift */,
 				D4A53B4127FB3810004A0F4C /* MainView.swift */,
-				D4A53B4327FB386C004A0F4C /* StatView.swift */,
-				D4E7BFCB27FBFF6300A147D9 /* StatItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,8 +415,10 @@
 			files = (
 				D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */,
 				D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */,
+				D4214FEE28030B110011449C /* BottomCard.swift in Sources */,
 				D4E7BFDE28012F8700A147D9 /* StyledDatePicker.swift in Sources */,
 				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
+				D4214FF22803146B0011449C /* StatItemBottomCardContent.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
 				D4E7BFFE2801919900A147D9 /* ColorExtension.swift in Sources */,

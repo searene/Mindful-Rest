@@ -14,6 +14,7 @@ struct StatItem: View {
     private let removeItemHandler: (_ restRecordId: Int64) -> Void
     @State private var endDate: Date
     @State private var showEndDatePicker = false
+    @State private var showOptionsPopover = false
     private let isLastOne: Bool
     
     init(_ restRecord: RestRecord, isLastOne: Bool, _ removeItemHandler: @escaping (_ restRecordId: Int64) -> Void) {
@@ -51,17 +52,26 @@ struct StatItem: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(.white)
             .font(Font.custom("Rubik-Regular", size: 16))
-            .swipeActions(allowsFullSwipe: false) {
-                Button("Delete", role: .destructive, action: {
-                    removeItemHandler(restRecordId)
-                })
-                
-                Button("Modify", action: {
-                    showEndDatePicker = true
-                })
-                .tint(.green)
+            .onTapGesture {
+                showOptionsPopover = true
             }
-            .popover(isPresented: $showEndDatePicker) {
+            .sheet(isPresented: $showOptionsPopover) {
+                VStack {
+                    List {
+                        Button("Modify", action: {
+                            showOptionsPopover = false
+                            showEndDatePicker = true
+                        })
+                        Button("Delete", role: .destructive, action: {
+                            showOptionsPopover = false
+                            removeItemHandler(restRecordId)
+                        })
+                        
+                    }
+                }
+                .frame(width: 100, height: 100)
+            }
+            .sheet(isPresented: $showEndDatePicker) {
                 Text("Please enter the end time")
                 DatePicker("Please enter the end time", selection: $endDate)
                     .labelsHidden()
