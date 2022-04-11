@@ -22,7 +22,7 @@ struct RestDataManager {
     private static var db = try! Connection(dbFileUrl.path)
     private static var restRecordDataScheme = initRestRecordTable(db: db)
     
-    /// If any restRecord's id equals it, it means the restRecords hasn't been persisted into the database yet.
+    /// If a restRecord's id equals it, then the restRecord hasn't been persisted into the database yet.
     static let NON_PERSISTENT_ID: Int64 = -1
     
     static func updateRestRecordById(restRecord: RestRecord) -> Void {
@@ -77,7 +77,7 @@ struct RestDataManager {
                     && restRecordDataScheme.startDate < startOfDate.nextDay
                     && restRecordDataScheme.endDate != nil)
             .order(restRecordDataScheme.startDate.asc)
-        return try! db.prepare(query)
+        let res: [RestRecord] = try! db.prepare(query)
             .map {
                 let startDate: Date = $0[restRecordDataScheme.startDate]
                 var endDate: Date = $0[restRecordDataScheme.endDate]!
@@ -88,6 +88,8 @@ struct RestDataManager {
                                   startDate: startDate,
                                   endDate: endDate)
             }
+        print(res)
+        return res
     }
 
     static func resetDB() -> Void {

@@ -36,17 +36,16 @@ struct BottomCard<Content: View>: View {
                 self.dismiss()
             }
             
-            VStack {
-                Spacer()
-                
+            if !cardDismissed && cardShown {
                 VStack {
+                    Spacer()
                     
-                    content
+                    VStack {
+                        
+                        content
+                    }
+                    .background(Color.white)
                 }
-                .background(Color.white)
-                .frame(height: height)
-                .offset(y: !cardDismissed && cardShown ? 0 : height)
-                .animation(Animation.default.delay(0.2))
                 
             }
         }
@@ -63,8 +62,21 @@ struct BottomCard<Content: View>: View {
 
 struct CardContent: View {
     var body: some View {
-        Text("hello world")
-            .frame(maxWidth: .infinity)
+        VStack {
+            Button("Modify", action: {})
+                .frame(maxWidth: .infinity)
+                .padding()
+            
+            Button("Delete", role: .destructive, action: {})
+                .frame(maxWidth: .infinity)
+                .padding()
+            
+            Divider()
+            
+            Button("Cancel", action: {})
+                .frame(maxWidth: .infinity)
+                .padding()
+        }
     }
 }
 
@@ -76,7 +88,7 @@ struct BottomCard_Previews: PreviewProvider {
     static var previews: some View {
         BottomCard(cardShown: $cardShown,
                    cardDismissed: $cardDismissed,
-                   height: 50) {
+                   height: 200) {
             CardContent()
                 .padding()
         }

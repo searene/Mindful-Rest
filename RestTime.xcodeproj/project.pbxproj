@@ -12,7 +12,8 @@
 		D4090BF227F88FCA0068E4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF127F88FCA0068E4C5 /* Assets.xcassets */; };
 		D4090BF527F88FCA0068E4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */; };
 		D4214FEE28030B110011449C /* BottomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* BottomCard.swift */; };
-		D4214FF22803146B0011449C /* StatItemBottomCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */; };
+		D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemOptions.swift */; };
+		D421500628046EB20011449C /* StatViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D421500528046EB20011449C /* StatViewTest.swift */; };
 		D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53AC427F9D905004A0F4C /* RestRecord.swift */; };
 		D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */; };
 		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
@@ -49,6 +50,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D421500028046DD70011449C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4090BE227F88FC80068E4C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4090BE927F88FC80068E4C5;
+			remoteInfo = RestTime;
+		};
 		D4A53B2127FA88AF004A0F4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4090BE227F88FC80068E4C5 /* Project object */;
@@ -65,7 +73,9 @@
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D4214FED28030B110011449C /* BottomCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCard.swift; sourceTree = "<group>"; };
-		D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemBottomCardContent.swift; sourceTree = "<group>"; };
+		D4214FF12803146B0011449C /* StatItemOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemOptions.swift; sourceTree = "<group>"; };
+		D4214FFA28046DD70011449C /* RestTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D421500528046EB20011449C /* StatViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewTest.swift; sourceTree = "<group>"; };
 		D4A53AC427F9D905004A0F4C /* RestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecord.swift; sourceTree = "<group>"; };
 		D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecordTest.swift; sourceTree = "<group>"; };
@@ -111,6 +121,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4214FF728046DD70011449C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A53B1A27FA88AF004A0F4C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +143,7 @@
 			children = (
 				D4090BEC27F88FC80068E4C5 /* RestTime */,
 				D4A53B1E27FA88AF004A0F4C /* RestTimeTests */,
+				D4214FFB28046DD70011449C /* RestTimeUITests */,
 				D4090BEB27F88FC80068E4C5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +153,7 @@
 			children = (
 				D4090BEA27F88FC80068E4C5 /* RestTime.app */,
 				D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */,
+				D4214FFA28046DD70011449C /* RestTimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,9 +206,17 @@
 			isa = PBXGroup;
 			children = (
 				D4E7BFCB27FBFF6300A147D9 /* StatItem.swift */,
-				D4214FF12803146B0011449C /* StatItemBottomCardContent.swift */,
+				D4214FF12803146B0011449C /* StatItemOptions.swift */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		D4214FFB28046DD70011449C /* RestTimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D421500528046EB20011449C /* StatViewTest.swift */,
+			);
+			path = RestTimeUITests;
 			sourceTree = "<group>";
 		};
 		D4A53B1E27FA88AF004A0F4C /* RestTimeTests */ = {
@@ -319,6 +346,24 @@
 			productReference = D4090BEA27F88FC80068E4C5 /* RestTime.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D4214FF928046DD70011449C /* RestTimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D421500228046DD70011449C /* Build configuration list for PBXNativeTarget "RestTimeUITests" */;
+			buildPhases = (
+				D4214FF628046DD70011449C /* Sources */,
+				D4214FF728046DD70011449C /* Frameworks */,
+				D4214FF828046DD70011449C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D421500128046DD70011449C /* PBXTargetDependency */,
+			);
+			name = RestTimeUITests;
+			productName = RestTimeUITests;
+			productReference = D4214FFA28046DD70011449C /* RestTimeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D4A53B1C27FA88AF004A0F4C /* RestTimeTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A53B2327FA88AF004A0F4C /* Build configuration list for PBXNativeTarget "RestTimeTests" */;
@@ -350,6 +395,10 @@
 					D4090BE927F88FC80068E4C5 = {
 						CreatedOnToolsVersion = 13.3;
 					};
+					D4214FF928046DD70011449C = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = D4090BE927F88FC80068E4C5;
+					};
 					D4A53B1C27FA88AF004A0F4C = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = D4090BE927F88FC80068E4C5;
@@ -374,6 +423,7 @@
 			targets = (
 				D4090BE927F88FC80068E4C5 /* RestTime */,
 				D4A53B1C27FA88AF004A0F4C /* RestTimeTests */,
+				D4214FF928046DD70011449C /* RestTimeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -399,6 +449,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4214FF828046DD70011449C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A53B1B27FA88AF004A0F4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,7 +475,7 @@
 				D4214FEE28030B110011449C /* BottomCard.swift in Sources */,
 				D4E7BFDE28012F8700A147D9 /* StyledDatePicker.swift in Sources */,
 				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
-				D4214FF22803146B0011449C /* StatItemBottomCardContent.swift in Sources */,
+				D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
 				D4E7BFFE2801919900A147D9 /* ColorExtension.swift in Sources */,
@@ -432,6 +489,14 @@
 				D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */,
 				D4090BEE27F88FC80068E4C5 /* RestTimeApp.swift in Sources */,
 				D4A53B3527FA9C54004A0F4C /* DictExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4214FF628046DD70011449C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D421500628046EB20011449C /* StatViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +516,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D421500128046DD70011449C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4090BE927F88FC80068E4C5 /* RestTime */;
+			targetProxy = D421500028046DD70011449C /* PBXContainerItemProxy */;
+		};
 		D4A53B2227FA88AF004A0F4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D4090BE927F88FC80068E4C5 /* RestTime */;
@@ -633,6 +703,42 @@
 			};
 			name = Release;
 		};
+		D421500328046DD70011449C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38YM4USZ8J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rest.RestTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RestTime;
+			};
+			name = Debug;
+		};
+		D421500428046DD70011449C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38YM4USZ8J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rest.RestTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RestTime;
+			};
+			name = Release;
+		};
 		D4A53B2427FA88AF004A0F4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -686,6 +792,15 @@
 			buildConfigurations = (
 				D4090BF927F88FCA0068E4C5 /* Debug */,
 				D4090BFA27F88FCA0068E4C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D421500228046DD70011449C /* Build configuration list for PBXNativeTarget "RestTimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D421500328046DD70011449C /* Debug */,
+				D421500428046DD70011449C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

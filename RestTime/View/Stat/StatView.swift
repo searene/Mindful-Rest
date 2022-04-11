@@ -14,6 +14,9 @@ struct StatView: View {
     @ObservedObject private var latestRestRecord: LatestRestRecord
     @State private var restRecords: [RestRecord] = []
     
+    @State private var statItemOptionsShown = false
+    @State private var statItemOptionsDismissed = false
+    
     init(latestRestRecord: LatestRestRecord) {
         self.latestRestRecord = latestRestRecord
         let statDate = Date().getStartOfDay()
@@ -21,22 +24,28 @@ struct StatView: View {
     }
     
     var body: some View {
-        return VStack(alignment: .center, spacing: 0) {
-            getDatePickerView()
-            Spacer(minLength: 30)
-            // FIXME make the top distance the same as the bottom distance
-            getTotalView(restRecords)
-            Spacer(minLength: 30)
-            getStatItemsView()
-            Spacer()
-        }
-        .onAppear {
-//            restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
-                    restRecords = [
-                        RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
-                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
-                        RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
-                    ]
+        ZStack {
+            VStack(alignment: .center, spacing: 0) {
+                getDatePickerView()
+                Spacer(minLength: 30)
+                // FIXME make the top distance the same as the bottom distance
+                getTotalView(restRecords)
+                Spacer(minLength: 30)
+                getStatItemsView()
+                Spacer()
+            }
+            .onAppear {
+                restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
+//                        restRecords = [
+//                            RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
+//                            RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
+//                            RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate())
+//                        ]
+            }
+            
+            BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed, height: 30) {
+                StatItemOptions()
+            }
         }
     }
     

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:RestTime.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D4214FF928046DD70011449C"
+               BuildableName = "RestTimeUITests.xctest"
+               BlueprintName = "RestTimeUITests"
+               ReferencedContainer = "container:RestTime.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
