@@ -21,6 +21,7 @@ struct MainView: View {
             StatView(latestRestRecord: latestRestRecord)
                 .tabItem {
                     Label("Statistics", systemImage: "square.and.pencil")
+                        .accessibilityIdentifier("StatisticsTab")
                 }
         }
     }

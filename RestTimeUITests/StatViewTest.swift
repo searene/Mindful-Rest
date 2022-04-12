@@ -16,8 +16,9 @@ class StatViewTest: XCTestCase {
         app.launch()
     }
 
+    /// FIXME
     func testExample() throws {
-        XCTAssertTrue(true)
+        app.buttons["StatisticsTab"].tap()
     }
 
 }
