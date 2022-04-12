@@ -13,6 +13,16 @@ struct RestRecordDataScheme {
     let id: Expression<Int64>
     let startDate: Expression<Date>
     let endDate: Expression<Date?>
+    
+    /// Check if the current RestRecord should belong
+    /// to the given day when querying statistics
+    func shouldBelongToDay(day: Date) -> Expression<Bool?> {
+        let startOfDate = day.getStartOfDay()
+        return startDate >= startOfDate
+                && startDate < startOfDate.nextDay
+                && endDate != nil
+        
+    }
 }
 
 struct RestDataManager {
@@ -73,9 +83,7 @@ struct RestDataManager {
     static func getRestRecordAtDay(date: Date) -> [RestRecord] {
         let startOfDate = date.getStartOfDay()
         let query = restRecordDataScheme.table
-            .filter(restRecordDataScheme.startDate >= startOfDate
-                    && restRecordDataScheme.startDate < startOfDate.nextDay
-                    && restRecordDataScheme.endDate != nil)
+            .filter(restRecordDataScheme.shouldBelongToDay(day: date))
             .order(restRecordDataScheme.startDate.asc)
         let res: [RestRecord] = try! db.prepare(query)
             .map {
@@ -103,6 +111,12 @@ struct RestDataManager {
     static func deleteOngoingRest() -> Void {
         let query = restRecordDataScheme.table
             .filter(restRecordDataScheme.endDate == nil)
+        try! db.run(query.delete())
+    }
+    
+    static func deleteRestRecordsByStartDate(startDate: Date) -> Void {
+        let query = restRecordDataScheme.table
+            .filter(restRecordDataScheme.shouldBelongToDay(day: startDate))
         try! db.run(query.delete())
     }
     
@@ -150,4 +164,5 @@ struct RestDataManager {
         return restRecordDataScheme.table
             .filter(restRecordDataScheme.endDate != nil)
     }
+    
 }

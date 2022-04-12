@@ -63,7 +63,7 @@ class RestDataManagerTest: XCTestCase {
         
         let records = RestDataManager.getRestRecordAtDay(date: "2020-12-30 00:00:00".toDate())
         
-        XCTAssertTrue(isEqualWithoutCheckingId(records, [record2, record1]))
+        XCTAssertTrue(isEqualWithoutCheckingId(records, [record1, record2]))
     }
     
     func testUpdateRecordById() {
@@ -133,6 +133,23 @@ class RestDataManagerTest: XCTestCase {
         
         let ongoingRest = RestDataManager.getOngoingRest()
         XCTAssertNil(ongoingRest)
+    }
+    
+    func testDeleteRestRecordsByStartDate(startDate: Date) {
+        let record1 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-29 10:00:00".toDate(),
+                                 endDate: "2020-12-29 11:00:00".toDate())
+        let record2 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                 startDate: "2020-12-30 10:00:00".toDate(),
+                                 endDate: "2020-12-30 11:00:00".toDate())
+        RestDataManager.saveRestRecord(restRecord: record1)
+        RestDataManager.saveRestRecord(restRecord: record2)
+        
+        RestDataManager.deleteRestRecordsByStartDate(startDate: "2020-12-29 00:00:00".toDate())
+        
+        let records = RestDataManager.getRestRecords()
+        XCTAssertEqual(records.count, 1)
+        XCTAssertTrue(containsWithoutCheckingId(record: record2, records: records))
     }
     
     private func isEqualWithoutCheckingId(_ records1: [RestRecord], _ records2: [RestRecord]) -> Bool {
