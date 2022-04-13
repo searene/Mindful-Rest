@@ -43,7 +43,7 @@ struct StatView: View {
 //                        ]
             }
             
-            BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed, height: 30) {
+            BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
                 StatItemOptions()
             }
         }

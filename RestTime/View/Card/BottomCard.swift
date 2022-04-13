@@ -12,13 +12,10 @@ struct BottomCard<Content: View>: View {
     let content: Content
     @Binding var cardDismissed: Bool
     @Binding var cardShown: Bool
-    let height: CGFloat
 
     init(cardShown: Binding<Bool>,
          cardDismissed: Binding<Bool>,
-         height: CGFloat,
          @ViewBuilder content: () -> Content) {
-            self.height = height
             _cardShown = cardShown
             _cardDismissed = cardDismissed
             self.content = content()
@@ -87,8 +84,7 @@ struct BottomCard_Previews: PreviewProvider {
     
     static var previews: some View {
         BottomCard(cardShown: $cardShown,
-                   cardDismissed: $cardDismissed,
-                   height: 200) {
+                   cardDismissed: $cardDismissed) {
             CardContent()
                 .padding()
         }
