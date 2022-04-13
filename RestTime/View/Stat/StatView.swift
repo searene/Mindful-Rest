@@ -12,17 +12,19 @@ struct StatView: View {
     
     @State private var statDate: Date
     @ObservedObject private var latestRestRecord: LatestRestRecord
-    @State private var restRecords: [RestRecord] = []
     @ObservedObject var currentClickedRestRecord: CurrentClickedRestRecord
+    @ObservedObject var statRestRecords: StatRestRecords
     
     @State private var statItemOptionsDismissed = false
     private let setStatItemBottomCardVisibility: (_ visible: Bool) -> Void
     
     init(latestRestRecord: LatestRestRecord,
+         statRestRecords: StatRestRecords,
          currentClickedRestRecord: CurrentClickedRestRecord,
          setStatItemBottomCardVisibility: @escaping (_ visible: Bool) -> Void) {
         
         self.latestRestRecord = latestRestRecord
+        self.statRestRecords = statRestRecords
         self.currentClickedRestRecord = currentClickedRestRecord
         let statDate = Date().getStartOfDay()
         _statDate = State(initialValue: statDate)
@@ -35,13 +37,13 @@ struct StatView: View {
                 getDatePickerView()
                 Spacer(minLength: 30)
                 // FIXME make the top distance the same as the bottom distance
-                getTotalView(restRecords)
+                getTotalView(statRestRecords.restRecords)
                 Spacer(minLength: 30)
-                getStatItemsView()
+                getStatItemsView(statRestRecords.restRecords)
                 Spacer()
             }
             .onAppear {
-                restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
+                statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
 //                        restRecords = [
 //                            RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
 //                            RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
@@ -56,12 +58,12 @@ struct StatView: View {
     private func getDatePickerView() -> some View {
         StyledDatePicker(selectedDate: $statDate)
             .onChange(of: statDate, perform: {
-                restRecords = RestDataManager.getRestRecordAtDay(date: $0)
+                statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: $0)
             })
     }
     
     @ViewBuilder
-    private func getStatItemsView() -> some View {
+    private func getStatItemsView(_ restRecords: [RestRecord]) -> some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
                 if restRecords.count > 0 {
@@ -70,7 +72,7 @@ struct StatView: View {
                                  isLastOne: index == restRecords.count - 1,
                                  removeItemHandler: { restRecordId in
                                     RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
-                                    self.restRecords = restRecords.filter { $0.id != restRecordId }
+                                    statRestRecords.restRecords = statRestRecords.restRecords.filter { $0.id != restRecordId }
                                     // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in
@@ -107,6 +109,7 @@ struct StatView_Previews: PreviewProvider {
     
     static var previews: some View {
         StatView(latestRestRecord: LatestRestRecord(),
+                 statRestRecords: StatRestRecords(),
                  currentClickedRestRecord: currentClickedRestRecord,
                  setStatItemBottomCardVisibility: { print($0) })
     }

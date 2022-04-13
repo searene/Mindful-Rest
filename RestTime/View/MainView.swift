@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject private var latestRestRecord = LatestRestRecord()
+    @StateObject private var statRestRecords = StatRestRecords()
     
     @State private var statItemOptionsShown = false
     @State private var statItemOptionsDismissed = false
@@ -24,6 +25,7 @@ struct MainView: View {
                     }
                 
                 StatView(latestRestRecord: latestRestRecord,
+                         statRestRecords: statRestRecords,
                          currentClickedRestRecord: currentClickedRestRecord,
                          setStatItemBottomCardVisibility: {
                     statItemOptionsShown = $0
