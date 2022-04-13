@@ -10,9 +10,12 @@ import SwiftUI
 struct StatItemOptions: View {
     
     private let dismissHandler: () -> Void;
+    private let deleteHandler: () -> Void;
     
-    init(dismissHandler: @escaping () -> Void) {
+    init(dismissHandler: @escaping () -> Void,
+         deleteHandler: @escaping () -> Void) {
         self.dismissHandler = dismissHandler
+        self.deleteHandler = deleteHandler
     }
     
     var body: some View {
@@ -21,7 +24,9 @@ struct StatItemOptions: View {
                 .frame(maxWidth: .infinity)
                 .padding()
             
-            Button("Delete", role: .destructive, action: {})
+            Button("Delete", role: .destructive, action: {
+                self.deleteHandler()
+            })
                 .frame(maxWidth: .infinity)
                 .padding()
             
@@ -38,6 +43,6 @@ struct StatItemOptions: View {
 
 struct StatItemOptions_Previews: PreviewProvider {
     static var previews: some View {
-        StatItemOptions(dismissHandler: {})
+        StatItemOptions(dismissHandler: {}, deleteHandler: {})
     }
 }

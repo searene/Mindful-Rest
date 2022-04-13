@@ -14,6 +14,7 @@
 		D4214FEE28030B110011449C /* BottomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* BottomCard.swift */; };
 		D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemOptions.swift */; };
 		D421500628046EB20011449C /* StatViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D421500528046EB20011449C /* StatViewTest.swift */; };
+		D421500A2806F3E00011449C /* CurrentClickedRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42150092806F3E00011449C /* CurrentClickedRestRecord.swift */; };
 		D4A53AC527F9D906004A0F4C /* RestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53AC427F9D905004A0F4C /* RestRecord.swift */; };
 		D4A53B2727FA88F4004A0F4C /* RestRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */; };
 		D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53B2927FA8B64004A0F4C /* StringExtension.swift */; };
@@ -76,6 +77,7 @@
 		D4214FF12803146B0011449C /* StatItemOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemOptions.swift; sourceTree = "<group>"; };
 		D4214FFA28046DD70011449C /* RestTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D421500528046EB20011449C /* StatViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewTest.swift; sourceTree = "<group>"; };
+		D42150092806F3E00011449C /* CurrentClickedRestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentClickedRestRecord.swift; sourceTree = "<group>"; };
 		D4A53AC427F9D905004A0F4C /* RestRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecord.swift; sourceTree = "<group>"; };
 		D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A53B2627FA88F4004A0F4C /* RestRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRecordTest.swift; sourceTree = "<group>"; };
@@ -165,7 +167,6 @@
 				D4E7C001280198DC00A147D9 /* Fonts */,
 				D4E7BFDA28012EFC00A147D9 /* DatePicker */,
 				D4E7BFD527FD16E300A147D9 /* Service */,
-				D4E7BFD227FC80F400A147D9 /* Observe */,
 				D4E7BFCD27FC0D9300A147D9 /* Domain */,
 				D4A53B4527FB38E8004A0F4C /* View */,
 				D4A53B3C27FACB16004A0F4C /* Util */,
@@ -270,15 +271,9 @@
 				D4A53AC427F9D905004A0F4C /* RestRecord.swift */,
 				D4E7BFCE27FC0DA600A147D9 /* Duration.swift */,
 				D4E7BFD827FD1C9A00A147D9 /* OngoingRest.swift */,
+				D42150092806F3E00011449C /* CurrentClickedRestRecord.swift */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		D4E7BFD227FC80F400A147D9 /* Observe */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Observe;
 			sourceTree = "<group>";
 		};
 		D4E7BFD527FD16E300A147D9 /* Service */ = {
@@ -478,6 +473,7 @@
 				D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */,
 				D4A53B2A27FA8B64004A0F4C /* StringExtension.swift in Sources */,
 				D4E7BFD427FC811800A147D9 /* LatestRestRecord.swift in Sources */,
+				D421500A2806F3E00011449C /* CurrentClickedRestRecord.swift in Sources */,
 				D4E7BFFE2801919900A147D9 /* ColorExtension.swift in Sources */,
 				D4E7BFCF27FC0DA600A147D9 /* Duration.swift in Sources */,
 				D4E7BFD927FD1C9A00A147D9 /* OngoingRest.swift in Sources */,

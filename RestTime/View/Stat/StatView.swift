@@ -13,15 +13,17 @@ struct StatView: View {
     @State private var statDate: Date
     @ObservedObject private var latestRestRecord: LatestRestRecord
     @State private var restRecords: [RestRecord] = []
-    @State private var clickedRestRecordId: Int64?
+    @ObservedObject var currentClickedRestRecord: CurrentClickedRestRecord
     
     @State private var statItemOptionsDismissed = false
     private let setStatItemBottomCardVisibility: (_ visible: Bool) -> Void
     
     init(latestRestRecord: LatestRestRecord,
+         currentClickedRestRecord: CurrentClickedRestRecord,
          setStatItemBottomCardVisibility: @escaping (_ visible: Bool) -> Void) {
         
         self.latestRestRecord = latestRestRecord
+        self.currentClickedRestRecord = currentClickedRestRecord
         let statDate = Date().getStartOfDay()
         _statDate = State(initialValue: statDate)
         self.setStatItemBottomCardVisibility = setStatItemBottomCardVisibility
@@ -72,7 +74,8 @@ struct StatView: View {
                                     // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in
-                                    clickedRestRecordId = restRecordId
+                                    let restRecord = restRecords.filter {$0.id == restRecordId}[0]
+                                    currentClickedRestRecord.restRecord = restRecord
                                     setStatItemBottomCardVisibility(true)
                                  })
                     }
@@ -99,7 +102,12 @@ struct StatView: View {
 }
 
 struct StatView_Previews: PreviewProvider {
+    
+    @StateObject private static var currentClickedRestRecord = CurrentClickedRestRecord()
+    
     static var previews: some View {
-        StatView(latestRestRecord: LatestRestRecord(), setStatItemBottomCardVisibility: { print($0) })
+        StatView(latestRestRecord: LatestRestRecord(),
+                 currentClickedRestRecord: currentClickedRestRecord,
+                 setStatItemBottomCardVisibility: { print($0) })
     }
 }

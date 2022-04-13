@@ -13,6 +13,7 @@ struct MainView: View {
     
     @State private var statItemOptionsShown = false
     @State private var statItemOptionsDismissed = false
+    @StateObject private var currentClickedRestRecord = CurrentClickedRestRecord()
     
     var body: some View {
         ZStack {
@@ -23,6 +24,7 @@ struct MainView: View {
                     }
                 
                 StatView(latestRestRecord: latestRestRecord,
+                         currentClickedRestRecord: currentClickedRestRecord,
                          setStatItemBottomCardVisibility: {
                     statItemOptionsShown = $0
                 })
@@ -32,7 +34,9 @@ struct MainView: View {
                     }
             }
             BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
-                StatItemOptions(dismissHandler: { statItemOptionsShown = false })
+                StatItemOptions(dismissHandler: { statItemOptionsShown = false }, deleteHandler: {
+                    RestDataManager.deleteRestRecordById(restRecordId: currentClickedRestRecord.restRecord!.id)
+                })
             }
             
         }
@@ -40,6 +44,7 @@ struct MainView: View {
 }
 
 struct MainView_Previews: PreviewProvider {
+    
     static var previews: some View {
         MainView()
     }
