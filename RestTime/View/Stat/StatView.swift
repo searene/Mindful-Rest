@@ -13,6 +13,7 @@ struct StatView: View {
     @State private var statDate: Date
     @ObservedObject private var latestRestRecord: LatestRestRecord
     @State private var restRecords: [RestRecord] = []
+    @State private var clickedRestRecordId: Int64?
     
     @State private var statItemOptionsShown = false
     @State private var statItemOptionsDismissed = false
@@ -71,8 +72,9 @@ struct StatView: View {
                                     // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in
-                            
-                        })
+                                    clickedRestRecordId = restRecordId
+                                    statItemOptionsShown = true
+                                 })
                     }
                 }
             }

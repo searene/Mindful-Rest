@@ -12,6 +12,7 @@ struct StatItem: View {
     private let restRecordId: Int64
     private let startDate: Date
     private let removeItemHandler: (_ restRecordId: Int64) -> Void
+    private let clickHandler: (_ restRecordId: Int64) -> Void
     @State private var endDate: Date
     @State private var showEndDatePicker = false
     @State private var showOptionsPopover = false
@@ -27,6 +28,7 @@ struct StatItem: View {
         startDate = restRecord.startDate
         _endDate = State(initialValue: restRecord.endDate)
         self.removeItemHandler = removeItemHandler
+        self.clickHandler = clickHandler
     }
     
     var body: some View {
@@ -57,23 +59,7 @@ struct StatItem: View {
             .background(.white)
             .font(Font.custom("Rubik-Regular", size: 16))
             .onTapGesture {
-                showOptionsPopover = true
-            }
-            .sheet(isPresented: $showOptionsPopover) {
-                VStack {
-                    List {
-                        Button("Modify", action: {
-                            showOptionsPopover = false
-                            showEndDatePicker = true
-                        })
-                        Button("Delete", role: .destructive, action: {
-                            showOptionsPopover = false
-                            removeItemHandler(restRecordId)
-                        })
-                        
-                    }
-                }
-                .frame(width: 100, height: 100)
+                self.clickHandler(restRecordId)
             }
             .sheet(isPresented: $showEndDatePicker) {
                 Text("Please enter the end time")
