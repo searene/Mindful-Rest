@@ -20,12 +20,15 @@ struct StatItemOptions: View {
     
     var body: some View {
         VStack {
-            Button("Modify", action: {})
+            Button("Modify", action: {
+                self.dismissHandler()
+            })
                 .frame(maxWidth: .infinity)
                 .padding()
             
             Button("Delete", role: .destructive, action: {
                 self.deleteHandler()
+                self.dismissHandler()
             })
                 .frame(maxWidth: .infinity)
                 .padding()
