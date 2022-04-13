@@ -38,6 +38,9 @@ struct MainView: View {
             BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
                 StatItemOptions(dismissHandler: { statItemOptionsShown = false }, deleteHandler: {
                     RestDataManager.deleteRestRecordById(restRecordId: currentClickedRestRecord.restRecord!.id)
+                    statRestRecords.restRecords = statRestRecords.restRecords.filter {
+                        $0.id != currentClickedRestRecord.restRecord!.id
+                    }
                 })
             }
             
