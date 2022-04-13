@@ -32,7 +32,7 @@ struct MainView: View {
                     }
             }
             BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
-                StatItemOptions()
+                StatItemOptions(dismissHandler: { statItemOptionsShown = false })
             }
             
         }

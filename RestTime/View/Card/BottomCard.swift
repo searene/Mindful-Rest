@@ -28,7 +28,6 @@ struct BottomCard<Content: View>: View {
             }
             .background(Color.gray.opacity(0.5))
             .opacity(cardShown ? 1 : 0)
-            .animation(Animation.easeIn)
             .onTapGesture {
                 self.dismiss()
             }

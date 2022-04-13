@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct StatItemOptions: View {
+    
+    private let dismissHandler: () -> Void;
+    
+    init(dismissHandler: @escaping () -> Void) {
+        self.dismissHandler = dismissHandler
+    }
+    
     var body: some View {
         VStack {
             Button("Modify", action: {})
@@ -20,7 +27,9 @@ struct StatItemOptions: View {
             
             Divider()
             
-            Button("Cancel", action: {})
+            Button("Cancel", action: {
+                self.dismissHandler()
+            })
                 .frame(maxWidth: .infinity)
                 .padding()
         }
@@ -29,6 +38,6 @@ struct StatItemOptions: View {
 
 struct StatItemOptions_Previews: PreviewProvider {
     static var previews: some View {
-        StatItemOptions()
+        StatItemOptions(dismissHandler: {})
     }
 }
