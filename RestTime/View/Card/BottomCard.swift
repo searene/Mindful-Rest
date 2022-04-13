@@ -48,9 +48,10 @@ struct BottomCard<Content: View>: View {
     }
 
     private func dismiss() {
-        cardDismissed.toggle()
+        cardDismissed = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            cardShown.toggle()
+            cardShown = false
+            cardDismissed = false
         }
     }
 }
