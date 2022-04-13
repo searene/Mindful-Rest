@@ -96,7 +96,6 @@ struct RestDataManager {
                                   startDate: startDate,
                                   endDate: endDate)
             }
-        print(res)
         return res
     }
 
@@ -133,7 +132,6 @@ struct RestDataManager {
     private static func getDataFilePath(fileManager: FileManager) -> URL {
         let folderURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let res = folderURL.appendingPathComponent("rest_time.data")
-        print(res)
         return res
     }
     

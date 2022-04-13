@@ -42,4 +42,8 @@ extension Date {
         return Calendar.current.date(byAdding: components, to: self.getStartOfDay())!
     }
     
+    func plusMinutes(_ minutes: Double) -> Date {
+        return self + minutes * 60
+    }
+    
 }

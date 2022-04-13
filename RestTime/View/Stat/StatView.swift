@@ -62,8 +62,8 @@ struct StatView: View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
                 if restRecords.count > 0 {
-                    ForEach((0...restRecords.count - 1), id: \.self) { recordId in
-                        StatItem(restRecords[recordId], isLastOne: recordId == restRecords.count - 1, { restRecordId in
+                    ForEach(Array(restRecords.enumerated()), id: \.element.id) { index, element in
+                        StatItem(restRecords[index], isLastOne: index == restRecords.count - 1, { restRecordId in
                             RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
                             self.restRecords = restRecords.filter { $0.id != restRecordId }
                             // FIXME Also need to update the total rest time
