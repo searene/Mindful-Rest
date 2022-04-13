@@ -18,7 +18,10 @@ struct StatItem: View {
     
     private let isLastOne: Bool
     
-    init(_ restRecord: RestRecord, isLastOne: Bool, _ removeItemHandler: @escaping (_ restRecordId: Int64) -> Void) {
+    init(_ restRecord: RestRecord,
+         isLastOne: Bool,
+         removeItemHandler: @escaping (_ restRecordId: Int64) -> Void,
+         clickHandler: @escaping (_ restRecordId: Int64) -> Void) {
         restRecordId = restRecord.id
         self.isLastOne = isLastOne
         startDate = restRecord.startDate
@@ -106,7 +109,9 @@ struct StatItem_Previews: PreviewProvider {
                 id: 1,
                 startDate: "2020-03-20 10:00:00".toDate(),
                 endDate: "2020-03-20 11:00:00".toDate()
-            ), isLastOne: false, {
+            ), isLastOne: false, removeItemHandler: {
+                print($0)
+            }, clickHandler: {
                 print($0)
             })
             .padding(.top, 20)

@@ -63,10 +63,15 @@ struct StatView: View {
             LazyVStack(alignment: .leading, spacing: 0) {
                 if restRecords.count > 0 {
                     ForEach(Array(restRecords.enumerated()), id: \.element.id) { index, element in
-                        StatItem(restRecords[index], isLastOne: index == restRecords.count - 1, { restRecordId in
-                            RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
-                            self.restRecords = restRecords.filter { $0.id != restRecordId }
-                            // FIXME Also need to update the total rest time
+                        StatItem(restRecords[index],
+                                 isLastOne: index == restRecords.count - 1,
+                                 removeItemHandler: { restRecordId in
+                                    RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
+                                    self.restRecords = restRecords.filter { $0.id != restRecordId }
+                                    // FIXME Also need to update the total rest time
+                                 },
+                                 clickHandler: { restRecordId in
+                            
                         })
                     }
                 }
