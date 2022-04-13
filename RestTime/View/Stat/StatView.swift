@@ -15,13 +15,16 @@ struct StatView: View {
     @State private var restRecords: [RestRecord] = []
     @State private var clickedRestRecordId: Int64?
     
-    @State private var statItemOptionsShown = false
     @State private var statItemOptionsDismissed = false
+    private let setStatItemBottomCardVisibility: (_ visible: Bool) -> Void
     
-    init(latestRestRecord: LatestRestRecord) {
+    init(latestRestRecord: LatestRestRecord,
+         setStatItemBottomCardVisibility: @escaping (_ visible: Bool) -> Void) {
+        
         self.latestRestRecord = latestRestRecord
         let statDate = Date().getStartOfDay()
         _statDate = State(initialValue: statDate)
+        self.setStatItemBottomCardVisibility = setStatItemBottomCardVisibility
     }
     
     var body: some View {
@@ -44,9 +47,6 @@ struct StatView: View {
 //                        ]
             }
             
-            BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
-                StatItemOptions()
-            }
         }
     }
     
@@ -73,7 +73,7 @@ struct StatView: View {
                                  },
                                  clickHandler: { restRecordId in
                                     clickedRestRecordId = restRecordId
-                                    statItemOptionsShown = true
+                                    setStatItemBottomCardVisibility(true)
                                  })
                     }
                 }
@@ -100,6 +100,6 @@ struct StatView: View {
 
 struct StatView_Previews: PreviewProvider {
     static var previews: some View {
-        StatView(latestRestRecord: LatestRestRecord())
+        StatView(latestRestRecord: LatestRestRecord(), setStatItemBottomCardVisibility: { print($0) })
     }
 }

@@ -43,7 +43,6 @@ struct BottomCard<Content: View>: View {
                     }
                     .background(Color.white)
                 }
-                
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -83,10 +82,15 @@ struct BottomCard_Previews: PreviewProvider {
     @State private static var cardShown = true
     
     static var previews: some View {
-        BottomCard(cardShown: $cardShown,
-                   cardDismissed: $cardDismissed) {
-            CardContent()
-                .padding()
+        TabView {
+            BottomCard(cardShown: $cardShown,
+                       cardDismissed: $cardDismissed) {
+                CardContent()
+                    .padding()
+            }
+            .tabItem {
+                Label("Menu", systemImage: "list.dash")
+            }
         }
     }
     
