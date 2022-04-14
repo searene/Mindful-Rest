@@ -18,6 +18,11 @@ struct ModifyStatItem: View {
         self.currentClickedRestRecord = currentClickedRestRecord
         self.statRestRecords = statRestRecords
         self._shown = shown
+        
+        if currentClickedRestRecord.restRecord != nil {
+            _startDate = State(initialValue: currentClickedRestRecord.restRecord!.startDate)
+            _endDate = State(initialValue: currentClickedRestRecord.restRecord!.endDate)
+        }
     }
 
     var body: some View {
@@ -49,6 +54,7 @@ struct ModifyStatItem: View {
     }
     
     private func modifyDates() -> Void {
+        // FIXME the rest records in the UI is not refreshed, should fix it
         let newRestRecord = RestRecord(
             id: currentClickedRestRecord.restRecord!.id,
             startDate: startDate,

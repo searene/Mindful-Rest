@@ -43,6 +43,8 @@ struct MainView: View {
                     statRestRecords.restRecords = statRestRecords.restRecords.filter {
                         $0.id != currentClickedRestRecord.restRecord!.id
                     }
+                }, modifyHandler: {
+                    modifyStatItemShown = true
                 })
             }
             BottomCard(cardShown: $modifyStatItemShown, cardDismissed: $modifyStatItemDismissed) {
