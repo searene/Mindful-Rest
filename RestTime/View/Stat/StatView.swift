@@ -56,7 +56,7 @@ struct StatView: View {
     
     @ViewBuilder
     private func getDatePickerView() -> some View {
-        StyledDatePicker(selectedDate: $statDate)
+        DatePickerWithArrows(selectedDate: $statDate)
             .onChange(of: statDate, perform: {
                 statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: $0)
             })
