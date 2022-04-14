@@ -8,9 +8,17 @@ struct ModifyStatItem: View {
     
     @ObservedObject var currentClickedRestRecord: CurrentClickedRestRecord
     @ObservedObject var statRestRecords: StatRestRecords
-    @State var startDate: Date
-    @State var endDate: Date
+    @State var startDate: Date = Date()
+    @State var endDate: Date = Date()
     @Binding var shown: Bool
+    
+    init(currentClickedRestRecord: CurrentClickedRestRecord,
+         statRestRecords: StatRestRecords,
+         shown: Binding<Bool>) {
+        self.currentClickedRestRecord = currentClickedRestRecord
+        self.statRestRecords = statRestRecords
+        self._shown = shown
+    }
 
     var body: some View {
         VStack {
@@ -65,8 +73,6 @@ struct ModifyStatItem_Previews: PreviewProvider {
         ModifyStatItem(
             currentClickedRestRecord: CurrentClickedRestRecord(),
             statRestRecords: StatRestRecords(),
-            startDate: Date(),
-            endDate: Date(),
             shown: $shown)
     }
 }

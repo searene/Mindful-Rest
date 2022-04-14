@@ -14,6 +14,8 @@ struct MainView: View {
     
     @State private var statItemOptionsShown = false
     @State private var statItemOptionsDismissed = false
+    @State private var modifyStatItemShown = false
+    @State private var modifyStatItemDismissed = false
     @StateObject private var currentClickedRestRecord = CurrentClickedRestRecord()
     
     var body: some View {
@@ -42,6 +44,11 @@ struct MainView: View {
                         $0.id != currentClickedRestRecord.restRecord!.id
                     }
                 })
+            }
+            BottomCard(cardShown: $modifyStatItemShown, cardDismissed: $modifyStatItemDismissed) {
+                ModifyStatItem(currentClickedRestRecord: currentClickedRestRecord,
+                                statRestRecords: statRestRecords,
+                                shown: $modifyStatItemShown)
             }
             
         }
