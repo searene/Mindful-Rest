@@ -11,6 +11,7 @@ struct ModifyStatItem: View {
     @State var startDate: Date = Date()
     @State var endDate: Date = Date()
     @Binding var shown: Bool
+    @State private var showTimeConstraintAlert = false
     
     init(currentClickedRestRecord: CurrentClickedRestRecord,
          statRestRecords: StatRestRecords,
@@ -44,6 +45,10 @@ struct ModifyStatItem: View {
                     .background(Color(hex: 0x7982D3))
                     .cornerRadius(5)
                     .onTapGesture {
+                        if startDate > endDate {
+                            showTimeConstraintAlert = true
+                            return
+                        }
                         self.modifyDates()
                         statRestRecords.restRecords = statRestRecords.restRecords.sorted(by: {
                             $0.startDate < $1.startDate
@@ -52,6 +57,10 @@ struct ModifyStatItem: View {
                     }
             }
             .padding(.top, 30)
+        }
+        .alert(isPresented: $showTimeConstraintAlert) {
+            Alert(title: Text("Error"),
+                  message: Text("The start time must be less than the end time!"))
         }
         .padding()
     }
