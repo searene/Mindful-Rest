@@ -17,14 +17,17 @@ struct Card<Content: View>: View {
     @Binding var cardDismissed: Bool
     @Binding var cardShown: Bool
     var cardPos: CardPos
+    let tapElsewhereToDismiss: Bool
 
     init(cardShown: Binding<Bool>,
          cardDismissed: Binding<Bool>,
          cardPos: CardPos,
+         tapElsewhereToDismiss: Bool,
          @ViewBuilder content: () -> Content) {
             _cardShown = cardShown
             _cardDismissed = cardDismissed
             self.cardPos = cardPos
+            self.tapElsewhereToDismiss = tapElsewhereToDismiss
             self.content = content()
          }
     
@@ -36,7 +39,9 @@ struct Card<Content: View>: View {
             .background(Color.gray.opacity(0.5))
             .opacity(cardShown ? 1 : 0)
             .onTapGesture {
-//                self.dismiss()
+                if tapElsewhereToDismiss {
+                    self.dismiss()
+                }
             }
             
             if !cardDismissed && cardShown {
@@ -95,7 +100,8 @@ struct Card_Previews: PreviewProvider {
         TabView {
             Card(cardShown: $cardShown,
                        cardDismissed: $cardDismissed,
-                       cardPos: .bottom) {
+                       cardPos: .bottom,
+                       tapElsewhereToDismiss: true) {
                 CardContent()
                     .padding()
             }
