@@ -23,27 +23,34 @@ struct StatItemOptions: View {
     
     var body: some View {
         VStack {
-            Button("Modify", action: {
+            Button(action: {
                 self.dismissHandler()
                 self.modifyHandler()
-            })
-                .frame(maxWidth: .infinity)
-                .padding()
+            }) {
+                Text("Modify")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            }
             
-            Button("Delete", role: .destructive, action: {
+            Button(action: {
                 self.deleteHandler()
                 self.dismissHandler()
-            })
-                .frame(maxWidth: .infinity)
-                .padding()
+            }) {
+                Text("Delete")
+                    .foregroundColor(Color.red)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            }
             
             Divider()
             
-            Button("Cancel", action: {
+            Button(action: {
                 self.dismissHandler()
-            })
-                .frame(maxWidth: .infinity)
-                .padding()
+            }) {
+                Text("Cancel")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            }
         }
     }
 }
