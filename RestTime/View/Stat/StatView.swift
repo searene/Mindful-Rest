@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// FIXME automatically select the next when passes the midnight
 struct StatView: View {
     
     @State private var statDate: Date
@@ -43,6 +42,7 @@ struct StatView: View {
                 Spacer()
             }
             .onAppear {
+                statDate = Date().getStartOfDay()
                 statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
 //                        restRecords = [
 //                            RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
