@@ -39,7 +39,7 @@ struct StatView: View {
                 // FIXME make the top distance the same as the bottom distance
                 getTotalView(statRestRecords.restRecords)
                 Spacer(minLength: 30)
-                getStatItemsView(statRestRecords.restRecords)
+                getStatItemsView()
                 Spacer()
             }
             .onAppear {
@@ -63,20 +63,20 @@ struct StatView: View {
     }
     
     @ViewBuilder
-    private func getStatItemsView(_ restRecords: [RestRecord]) -> some View {
+    private func getStatItemsView() -> some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
-                if restRecords.count > 0 {
-                    ForEach(Array(restRecords.enumerated()), id: \.element.id) { index, element in
-                        StatItem(restRecords[index],
-                                 isLastOne: index == restRecords.count - 1,
+                if statRestRecords.restRecords.count > 0 {
+                    ForEach(Array(statRestRecords.restRecords.enumerated()), id: \.element.id) { index, element in
+                        StatItem(restRecord: $statRestRecords.restRecords[index],
+                                 isLastOne: index == statRestRecords.restRecords.count - 1,
                                  removeItemHandler: { restRecordId in
                                     RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
                                     statRestRecords.restRecords = statRestRecords.restRecords.filter { $0.id != restRecordId }
                                     // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in
-                                    let restRecord = restRecords.filter {$0.id == restRecordId}[0]
+                            let restRecord = statRestRecords.restRecords.filter {$0.id == restRecordId}[0]
                                     currentClickedRestRecord.restRecord = restRecord
                                     setStatItemBottomCardVisibility(true)
                                  })
