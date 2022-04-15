@@ -44,7 +44,6 @@ struct BottomCard<Content: View>: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 
     private func dismiss() {
