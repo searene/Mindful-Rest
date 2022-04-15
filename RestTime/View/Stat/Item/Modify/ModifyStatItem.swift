@@ -45,6 +45,9 @@ struct ModifyStatItem: View {
                     .cornerRadius(5)
                     .onTapGesture {
                         self.modifyDates()
+                        statRestRecords.restRecords = statRestRecords.restRecords.sorted(by: {
+                            $0.startDate < $1.startDate
+                        })
                         shown = false
                     }
             }
