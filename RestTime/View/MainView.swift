@@ -37,7 +37,7 @@ struct MainView: View {
                             .accessibilityIdentifier("StatisticsTab")
                     }
             }
-            BottomCard(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed) {
+            Card(cardShown: $statItemOptionsShown, cardDismissed: $statItemOptionsDismissed, cardPos: .bottom) {
                 StatItemOptions(dismissHandler: { statItemOptionsShown = false }, deleteHandler: {
                     RestDataManager.deleteRestRecordById(restRecordId: currentClickedRestRecord.restRecord!.id)
                     statRestRecords.restRecords = statRestRecords.restRecords.filter {
@@ -47,7 +47,7 @@ struct MainView: View {
                     modifyStatItemShown = true
                 })
             }
-            BottomCard(cardShown: $modifyStatItemShown, cardDismissed: $modifyStatItemDismissed) {
+            Card(cardShown: $modifyStatItemShown, cardDismissed: $modifyStatItemDismissed, cardPos: .middle) {
                 ModifyStatItem(currentClickedRestRecord: currentClickedRestRecord,
                                 statRestRecords: statRestRecords,
                                 shown: $modifyStatItemShown)

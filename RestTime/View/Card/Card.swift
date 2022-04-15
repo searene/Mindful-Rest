@@ -1,5 +1,5 @@
 //
-//  BottomCard.swift
+//  Card.swift
 //  RestTime
 //
 //  Created by Joey Green on 2022/4/10.
@@ -7,17 +7,24 @@
 
 import SwiftUI
 
-struct BottomCard<Content: View>: View {
+enum CardPos {
+    case middle, bottom
+}
+
+struct Card<Content: View>: View {
 
     let content: Content
     @Binding var cardDismissed: Bool
     @Binding var cardShown: Bool
+    var cardPos: CardPos
 
     init(cardShown: Binding<Bool>,
          cardDismissed: Binding<Bool>,
+         cardPos: CardPos,
          @ViewBuilder content: () -> Content) {
             _cardShown = cardShown
             _cardDismissed = cardDismissed
+            self.cardPos = cardPos
             self.content = content()
          }
     
@@ -41,6 +48,10 @@ struct BottomCard<Content: View>: View {
                         content
                     }
                     .background(Color.white)
+                    
+                    if cardPos == .middle {
+                        Spacer()
+                    }
                 }
             }
         }
@@ -75,15 +86,16 @@ struct CardContent: View {
     }
 }
 
-struct BottomCard_Previews: PreviewProvider {
+struct Card_Previews: PreviewProvider {
     
     @State private static var cardDismissed = false
     @State private static var cardShown = true
     
     static var previews: some View {
         TabView {
-            BottomCard(cardShown: $cardShown,
-                       cardDismissed: $cardDismissed) {
+            Card(cardShown: $cardShown,
+                       cardDismissed: $cardDismissed,
+                       cardPos: .bottom) {
                 CardContent()
                     .padding()
             }

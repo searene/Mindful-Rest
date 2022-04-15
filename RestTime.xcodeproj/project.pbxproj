@@ -12,7 +12,7 @@
 		D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4090BEF27F88FC80068E4C5 /* ContentView.swift */; };
 		D4090BF227F88FCA0068E4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF127F88FCA0068E4C5 /* Assets.xcassets */; };
 		D4090BF527F88FCA0068E4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */; };
-		D4214FEE28030B110011449C /* BottomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* BottomCard.swift */; };
+		D4214FEE28030B110011449C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* Card.swift */; };
 		D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemOptions.swift */; };
 		D421500628046EB20011449C /* StatViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D421500528046EB20011449C /* StatViewTest.swift */; };
 		D421500A2806F3E00011449C /* CurrentClickedRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42150092806F3E00011449C /* CurrentClickedRestRecord.swift */; };
@@ -77,7 +77,7 @@
 		D4090BEF27F88FC80068E4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D4214FED28030B110011449C /* BottomCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCard.swift; sourceTree = "<group>"; };
+		D4214FED28030B110011449C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D4214FF12803146B0011449C /* StatItemOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemOptions.swift; sourceTree = "<group>"; };
 		D4214FFA28046DD70011449C /* RestTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D421500528046EB20011449C /* StatViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewTest.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		D4214FEC28030AFC0011449C /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				D4214FED28030B110011449C /* BottomCard.swift */,
+				D4214FED28030B110011449C /* Card.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 			files = (
 				D4A53B3E27FACB24004A0F4C /* StringUtils.swift in Sources */,
 				D4A53B3027FA92F5004A0F4C /* DateExtension.swift in Sources */,
-				D4214FEE28030B110011449C /* BottomCard.swift in Sources */,
+				D4214FEE28030B110011449C /* Card.swift in Sources */,
 				D4E7BFDE28012F8700A147D9 /* DatePickerWithArrows.swift in Sources */,
 				D4A53B4427FB386C004A0F4C /* StatView.swift in Sources */,
 				D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */,
