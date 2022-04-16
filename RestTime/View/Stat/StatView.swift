@@ -35,7 +35,6 @@ struct StatView: View {
             VStack(alignment: .center, spacing: 0) {
                 getDatePickerView()
                 Spacer(minLength: 30)
-                // FIXME make the top distance the same as the bottom distance
                 getTotalView(statRestRecords.restRecords)
                 Spacer(minLength: 30)
                 getStatItemsView()
@@ -60,6 +59,7 @@ struct StatView: View {
             .onChange(of: statDate, perform: {
                 statRestRecords.useRestRecords(RestDataManager.getRestRecordAtDay(date: $0))
             })
+            .padding(.top, 20)
     }
     
     @ViewBuilder

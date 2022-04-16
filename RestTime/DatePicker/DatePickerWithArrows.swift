@@ -27,8 +27,10 @@ struct DatePickerWithArrows: View {
                         }
                 DatePicker("Please select the date", selection: $selectedDate, displayedComponents: .date)
                         .labelsHidden()
-                        .padding()
                         .id(selectedDate)
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                
                 Image(systemName: "arrowtriangle.right.fill")
                         .foregroundColor(Color(hex: 0xc4c4c4))
                         .scaleEffect(1.5)
