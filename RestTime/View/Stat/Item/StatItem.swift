@@ -51,7 +51,9 @@ struct StatItem: View {
     }
     
     private func getDurationLabel(startDate: Date, endDate: Date) -> some View {
-        return Text(Duration.fromDates(startDate, endDate).getFullDescription())
+        return VStack(alignment: .leading, spacing: 0) {
+            
+            Text(Duration.fromDates(startDate, endDate).getFullDescription())
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(.white)
@@ -61,6 +63,10 @@ struct StatItem: View {
                     self.clickHandler(restRecord.id)
                 }
             }
+            
+            Color(hex: 0x7683D7)
+                .frame(width: .infinity, height: 5)
+        }
     }
     
     private func getVerticalLine() -> some View {
@@ -81,12 +87,13 @@ struct StatItem_Previews: PreviewProvider {
     
     static var previews: some View {
         VStack {
-            StatItem(restRecord: $restRecord, proportion: $proportion, isLastOne: false, removeItemHandler: {
+            StatItem(restRecord: $restRecord, proportion: $proportion, isLastOne: true, removeItemHandler: {
                 print($0)
             }, clickHandler: {
                 print($0)
             })
-            .padding(.top, 20)
+            .padding(.top, 50)
+            .padding(.bottom, 50)
         }
         .background(Color(hex: 0xf5f5f5))
     }
