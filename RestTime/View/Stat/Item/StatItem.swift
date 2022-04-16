@@ -12,8 +12,6 @@ struct StatItem: View {
     @Binding var restRecord: RestRecord
     private let removeItemHandler: (_ restRecordId: Int64) -> Void
     private let clickHandler: (_ restRecordId: Int64) -> Void
-    @State private var showEndDatePicker = false
-    @State private var showOptionsPopover = false
     
     private let isLastOne: Bool
     
