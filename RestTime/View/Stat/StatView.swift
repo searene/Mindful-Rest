@@ -74,7 +74,6 @@ struct StatView: View {
                                  removeItemHandler: { restRecordId in
                                     RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
                                     statRestRecords.useRestRecords(restRecords.filter { $0.id != restRecordId })
-                                    // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in
                             let restRecord = statRestRecords.restRecords.filter {$0.id == restRecordId}[0]
