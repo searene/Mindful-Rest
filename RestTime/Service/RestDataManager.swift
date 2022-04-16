@@ -72,7 +72,6 @@ struct RestDataManager {
     static func getOngoingRest() -> OngoingRest? {
         let query = restRecordDataScheme.table
             .filter(restRecordDataScheme.endDate === nil)
-        // FIXME return nil when empty
         let queryRes = try! db.pluck(query)
         if queryRes == nil {
             return nil

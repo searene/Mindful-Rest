@@ -9,9 +9,10 @@ import SwiftUI
 
 struct StatItemOptions: View {
     
-    private let dismissHandler: () -> Void;
-    private let deleteHandler: () -> Void;
-    private let modifyHandler: () -> Void;
+    private let dismissHandler: () -> Void
+    private let deleteHandler: () -> Void
+    private let modifyHandler: () -> Void
+    @State private var showDeleteAlert = false
     
     init(dismissHandler: @escaping () -> Void,
          deleteHandler: @escaping () -> Void,
@@ -35,11 +36,7 @@ struct StatItemOptions: View {
             }
             
             Button(action: {
-                // FIXME confirmation?
-                withAnimation {
-                    self.deleteHandler()
-                    self.dismissHandler()
-                }
+                showDeleteAlert = true
             }) {
                 Text("Delete")
                     .foregroundColor(Color.red)
@@ -56,6 +53,19 @@ struct StatItemOptions: View {
                     .frame(maxWidth: .infinity)
                     .padding()
             }
+        }
+        .alert(isPresented: $showDeleteAlert) {
+            Alert(
+                title: Text(""),
+                message: Text("This will delete the current record."),
+                primaryButton: .destructive(Text("Delete")) {
+                    withAnimation {
+                        self.deleteHandler()
+                        self.dismissHandler()
+                    }
+                },
+                secondaryButton: .cancel()
+            )
         }
     }
 }

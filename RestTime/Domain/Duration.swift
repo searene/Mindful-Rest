@@ -27,7 +27,6 @@ struct Duration: Equatable {
         return Duration(durationInSeconds: seconds)
     }
     
-    // FIXME convert 1h 0m 0s to 1h
     func getFullDescription() -> String {
         let hoursStr = getHoursStr(hours)
         let minutesStr = getMinutesStr(minutes)

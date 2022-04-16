@@ -32,7 +32,6 @@ struct StatItem: View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
                 getStartDateText(startDate: restRecord.startDate)
-                // FIXME show the proportion for each item
                 getDurationLabel(startDate: restRecord.startDate, endDate: restRecord.endDate)
                 Spacer(minLength: 25)
             }
