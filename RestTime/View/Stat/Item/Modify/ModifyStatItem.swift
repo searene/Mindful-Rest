@@ -50,9 +50,6 @@ struct ModifyStatItem: View {
                             return
                         }
                         self.modifyDates()
-                        statRestRecords.restRecords = statRestRecords.restRecords.sorted(by: {
-                            $0.startDate < $1.startDate
-                        })
                         shown = false
                     }
             }
@@ -71,14 +68,14 @@ struct ModifyStatItem: View {
             startDate: startDate,
             endDate: endDate)
         RestDataManager.updateRestRecordById(restRecord: newRestRecord)
-        statRestRecords.restRecords = statRestRecords.restRecords
+        statRestRecords.useRestRecords(statRestRecords.restRecords
             .map {
                 if $0.id == currentClickedRestRecord.restRecord!.id {
                     return newRestRecord
                 } else {
                     return $0
                 }
-            }
+            })
     }
 }
 

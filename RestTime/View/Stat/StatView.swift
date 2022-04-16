@@ -43,7 +43,7 @@ struct StatView: View {
             }
             .onAppear {
                 statDate = Date().getStartOfDay()
-                statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: statDate)
+                statRestRecords.useRestRecords(RestDataManager.getRestRecordAtDay(date: statDate))
 //                        restRecords = [
 //                            RestRecord(id: 1, startDate: "2020-03-15 10:00:00".toDate(), endDate: "2020-03-15 10:30:00".toDate()),
 //                            RestRecord(id: 2, startDate: "2020-03-15 15:00:00".toDate(), endDate: "2020-03-15 15:30:00".toDate()),
@@ -58,7 +58,7 @@ struct StatView: View {
     private func getDatePickerView() -> some View {
         DatePickerWithArrows(selectedDate: $statDate)
             .onChange(of: statDate, perform: {
-                statRestRecords.restRecords = RestDataManager.getRestRecordAtDay(date: $0)
+                statRestRecords.useRestRecords(RestDataManager.getRestRecordAtDay(date: $0))
             })
     }
     
@@ -72,7 +72,7 @@ struct StatView: View {
                                  isLastOne: index == statRestRecords.restRecords.count - 1,
                                  removeItemHandler: { restRecordId in
                                     RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
-                                    statRestRecords.restRecords = statRestRecords.restRecords.filter { $0.id != restRecordId }
+                                    statRestRecords.useRestRecords(restRecords.filter { $0.id != restRecordId })
                                     // FIXME Also need to update the total rest time
                                  },
                                  clickHandler: { restRecordId in

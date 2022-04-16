@@ -12,7 +12,7 @@ class StatRestRecords: ObservableObject {
     
     @Published var proportions: [Float] = []
     
-    func useRestRecords(restRecords: [RestRecord]) -> Void {
+    func useRestRecords(_ restRecords: [RestRecord]) -> Void {
         self.restRecords = restRecords.sorted(by: {
             $0.startDate < $1.startDate
         })
