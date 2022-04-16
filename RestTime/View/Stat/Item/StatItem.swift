@@ -64,9 +64,12 @@ struct StatItem: View {
                 }
             }
             
-            Color(hex: 0x7683D7)
-                .frame(width: .infinity, height: 5)
         }
+        .overlay(GeometryReader { proxy in
+            Color(hex: 0x7683D7)
+                .frame(width: proxy.size.width * CGFloat(proportion), height: 5)
+                .padding(.top, proxy.size.height)
+        })
     }
     
     private func getVerticalLine() -> some View {
