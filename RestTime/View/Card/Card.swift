@@ -14,18 +14,15 @@ enum CardPos {
 struct Card<Content: View>: View {
 
     let content: Content
-    @Binding var cardDismissed: Bool
     @Binding var cardShown: Bool
     var cardPos: CardPos
     let tapElsewhereToDismiss: Bool
 
     init(cardShown: Binding<Bool>,
-         cardDismissed: Binding<Bool>,
          cardPos: CardPos,
          tapElsewhereToDismiss: Bool,
          @ViewBuilder content: () -> Content) {
             _cardShown = cardShown
-            _cardDismissed = cardDismissed
             self.cardPos = cardPos
             self.tapElsewhereToDismiss = tapElsewhereToDismiss
             self.content = content()
@@ -44,7 +41,7 @@ struct Card<Content: View>: View {
                 }
             }
             
-            if !cardDismissed && cardShown {
+            if cardShown {
                 VStack {
                     Spacer()
                     
@@ -64,7 +61,6 @@ struct Card<Content: View>: View {
 
     private func dismiss() {
         withAnimation {
-            cardDismissed = false
             cardShown = false
         }
     }
@@ -92,13 +88,11 @@ struct CardContent: View {
 
 struct Card_Previews: PreviewProvider {
     
-    @State private static var cardDismissed = false
     @State private static var cardShown = true
     
     static var previews: some View {
         TabView {
             Card(cardShown: $cardShown,
-                       cardDismissed: $cardDismissed,
                        cardPos: .bottom,
                        tapElsewhereToDismiss: true) {
                 CardContent()
