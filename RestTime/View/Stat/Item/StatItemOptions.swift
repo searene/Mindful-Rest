@@ -24,8 +24,10 @@ struct StatItemOptions: View {
     var body: some View {
         VStack {
             Button(action: {
-                self.dismissHandler()
-                self.modifyHandler()
+                withAnimation {
+                    self.dismissHandler()
+                    self.modifyHandler()
+                }
             }) {
                 Text("Modify")
                     .frame(maxWidth: .infinity)
@@ -33,8 +35,11 @@ struct StatItemOptions: View {
             }
             
             Button(action: {
-                self.deleteHandler()
-                self.dismissHandler()
+                // FIXME confirmation?
+                withAnimation {
+                    self.deleteHandler()
+                    self.dismissHandler()
+                }
             }) {
                 Text("Delete")
                     .foregroundColor(Color.red)

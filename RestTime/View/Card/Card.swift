@@ -63,10 +63,9 @@ struct Card<Content: View>: View {
     }
 
     private func dismiss() {
-        cardDismissed = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            cardShown = false
+        withAnimation {
             cardDismissed = false
+            cardShown = false
         }
     }
 }

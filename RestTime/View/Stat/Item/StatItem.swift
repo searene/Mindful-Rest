@@ -56,7 +56,9 @@ struct StatItem: View {
             .background(.white)
             .font(Font.custom("Rubik-Regular", size: 16))
             .onTapGesture {
-                self.clickHandler(restRecord.id)
+                withAnimation {
+                    self.clickHandler(restRecord.id)
+                }
             }
     }
     
