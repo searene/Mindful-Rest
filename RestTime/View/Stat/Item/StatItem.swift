@@ -66,9 +66,17 @@ struct StatItem: View {
         }
         .overlay(GeometryReader { proxy in
             Color(hex: 0x7683D7)
-                .frame(width: proxy.size.width * CGFloat(proportion), height: 5)
+                .frame(width: getDurationLineWidth(proxy.size.width, proportion), height: 5)
                 .padding(.top, proxy.size.height)
         })
+    }
+    
+    private func getDurationLineWidth(_ totalWidth: CGFloat, _ proportion: Float) -> CGFloat {
+        if proportion < 0.05 {
+            return totalWidth * 0.05
+        } else {
+            return totalWidth * CGFloat(proportion)
+        }
     }
     
     private func getVerticalLine() -> some View {
@@ -85,7 +93,7 @@ struct StatItem_Previews: PreviewProvider {
                 id: 1,
                 startDate: "2020-03-20 10:00:00".toDate(),
                 endDate: "2020-03-20 11:00:00".toDate())
-    @State static var proportion: Float = 1.0
+    @State static var proportion: Float = 0.1
     
     static var previews: some View {
         VStack {
