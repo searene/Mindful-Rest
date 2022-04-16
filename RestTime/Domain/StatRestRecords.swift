@@ -13,8 +13,10 @@ class StatRestRecords: ObservableObject {
     @Published var proportions: [Float] = []
     
     func useRestRecords(restRecords: [RestRecord]) -> Void {
-        self.restRecords = restRecords
-        self.proportions = restRecords.enumerated().map { index, record in
+        self.restRecords = restRecords.sorted(by: {
+            $0.startDate < $1.startDate
+        })
+        self.proportions = self.restRecords.enumerated().map { index, record in
             RestRecord.getDurationProportion(restRecords: restRecords, targetIndex: index)
         }
     }
