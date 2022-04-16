@@ -10,16 +10,19 @@ import SwiftUI
 struct StatItem: View {
     
     @Binding var restRecord: RestRecord
+    @Binding var proportion: Float
     private let removeItemHandler: (_ restRecordId: Int64) -> Void
     private let clickHandler: (_ restRecordId: Int64) -> Void
     
     private let isLastOne: Bool
     
     init(restRecord: Binding<RestRecord>,
+         proportion: Binding<Float>,
          isLastOne: Bool,
          removeItemHandler: @escaping (_ restRecordId: Int64) -> Void,
          clickHandler: @escaping (_ restRecordId: Int64) -> Void) {
         self._restRecord = restRecord
+        self._proportion = proportion
         self.isLastOne = isLastOne
         self.removeItemHandler = removeItemHandler
         self.clickHandler = clickHandler
@@ -74,10 +77,11 @@ struct StatItem_Previews: PreviewProvider {
                 id: 1,
                 startDate: "2020-03-20 10:00:00".toDate(),
                 endDate: "2020-03-20 11:00:00".toDate())
+    @State static var proportion: Float = 1.0
     
     static var previews: some View {
         VStack {
-            StatItem(restRecord: $restRecord, isLastOne: false, removeItemHandler: {
+            StatItem(restRecord: $restRecord, proportion: $proportion, isLastOne: false, removeItemHandler: {
                 print($0)
             }, clickHandler: {
                 print($0)

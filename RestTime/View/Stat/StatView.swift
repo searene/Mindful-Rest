@@ -69,6 +69,7 @@ struct StatView: View {
                 if statRestRecords.restRecords.count > 0 {
                     ForEach(Array(statRestRecords.restRecords.enumerated()), id: \.element.id) { index, element in
                         StatItem(restRecord: $statRestRecords.restRecords[index],
+                                 proportion: $statRestRecords.proportions[index],
                                  isLastOne: index == statRestRecords.restRecords.count - 1,
                                  removeItemHandler: { restRecordId in
                                     RestDataManager.deleteRestRecordById(restRecordId: restRecordId)
