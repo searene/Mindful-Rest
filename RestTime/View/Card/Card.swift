@@ -99,7 +99,7 @@ struct Card_Previews: PreviewProvider {
                     .padding()
             }
             .tabItem {
-                Label("Menu", systemImage: "list.dash")
+                Label("Counter", systemImage: "list.dash")
             }
         }
     }

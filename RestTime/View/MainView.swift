@@ -21,7 +21,7 @@ struct MainView: View {
             TabView {
                 ContentView(latestRestRecord: latestRestRecord)
                     .tabItem {
-                        Label("Menu", systemImage: "list.dash")
+                        Label("Counter", systemImage: "list.dash")
                     }
                 
                 StatView(latestRestRecord: latestRestRecord,
