@@ -24,5 +24,12 @@ struct RestRecord: Equatable, Identifiable {
         return restRecords.map { $0.getDuration() }
             .reduce(Duration(durationInSeconds: 0)) { $0 + $1 }
     }
+    
+    static func getDurationProportion(restRecords: [RestRecord], targetIndex: Int) -> Float {
+        let totalDurationInSeconds = getTotalDuration(restRecords).durationInSeconds
+        let targetDurationInSeconds = restRecords[targetIndex].getDuration().durationInSeconds
+        return Float(targetDurationInSeconds) / Float(totalDurationInSeconds)
+    }
+    
 }
 

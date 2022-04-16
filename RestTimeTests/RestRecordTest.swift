@@ -33,5 +33,18 @@ class RestRecordTest: XCTestCase {
         
         XCTAssertEqual(duration, Duration(durationInSeconds: 76))
     }
+    
+    func testGetDurationProportion() {
+        let record1 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                startDate: "2020-12-30 10:00:00".toDate(),
+                                endDate: "2020-12-30 11:00:00".toDate())
+        let record2 = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                startDate: "2020-12-30 10:00:00".toDate(),
+                                endDate: "2020-12-30 13:00:00".toDate())
+        let proportion = RestRecord.getDurationProportion(restRecords: [record1, record2], targetIndex: 1)
+        
+        XCTAssertEqual(proportion, 0.75)
+    }
+    
 
 }
