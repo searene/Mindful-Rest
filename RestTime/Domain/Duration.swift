@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Duration: Equatable {
     
@@ -14,6 +15,10 @@ struct Duration: Equatable {
     private let hours: Int
     private let minutes: Int
     private let seconds: Int
+    
+    private let HOUR_DESC = NSLocalizedString("h", comment: "hour")
+    private let MINUTE_DESC = NSLocalizedString("m", comment: "minute")
+    private let SECOND_DESC = NSLocalizedString("s", comment: "second")
     
     init(durationInSeconds: Int) {
         self.durationInSeconds = durationInSeconds
@@ -42,9 +47,9 @@ struct Duration: Equatable {
     
     func getShortDescription() -> String {
         if durationInSeconds < 60 {
-            return "\(durationInSeconds)s"
+            return "\(durationInSeconds)\(HOUR_DESC)"
         }
-        return "\(durationInSeconds / 60)m"
+        return "\(durationInSeconds / 60)\(MINUTE_DESC)"
     }
     
     static func +(left: Duration, right: Duration) -> Duration {
@@ -52,15 +57,15 @@ struct Duration: Equatable {
     }
     
     private func getHoursStr(_ hours: Int) -> String {
-        return String(hours) + "h"
+        return "\(hours)\(HOUR_DESC)"
     }
     
     private func getMinutesStr(_ minutes: Int) -> String {
-        return String(minutes) + "m"
+        return "\(minutes)\(MINUTE_DESC)"
     }
     
     private func getSecondsStr(_ seconds: Int) -> String {
-        return String(seconds) + "s"
+        return "\(seconds)\(SECOND_DESC)"
     }
     
     private func toStr(_ num: Int) -> String {
