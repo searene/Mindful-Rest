@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ModifyDateTime: View {
     
-    let label: String;
+    let label: LocalizedStringKey;
     @Binding var date: Date
     
     var body: some View {
