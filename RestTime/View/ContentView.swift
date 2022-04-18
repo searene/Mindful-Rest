@@ -49,11 +49,7 @@ struct ContentView: View {
                     timerString = buttonTitle == START_RESTING ? "00:00" : startDate.getDurationString(endDate: Date())
                 }
             
-            ZStack {
-                
-                Color.blue
-                
-                Button(buttonTitle, action: {
+                Button(action: {
                     if buttonTitle == START_RESTING {
                         startDate = Date()
                         RestDataManager.upsertOngoingRest(startDate: startDate)
@@ -70,11 +66,13 @@ struct ContentView: View {
                         timerString = "00:00"
                         stopTimer()
                     }
-                })
-                .foregroundColor(Color.white)
-            }
-            .frame(width: 160, height: 50)
-            .cornerRadius(10)
+                }) {
+                    Text(buttonTitle)
+                        .frame(width: 160, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .foregroundColor(Color.white)
+                }
         }
     }
     
