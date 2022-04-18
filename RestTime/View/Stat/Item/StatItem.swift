@@ -57,7 +57,7 @@ struct StatItem: View {
             Text(Duration.fromDates(startDate, endDate).getFullDescription())
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .font(Font.custom("Rubik-Regular", size: 16))
+            .font(getFont())
             .overlay(GeometryReader { proxy in
                 Color(hex: 0x7683D7)
                     .frame(width: getDurationLineWidth(proxy.size.width, proportion), height: 5)
@@ -68,6 +68,15 @@ struct StatItem: View {
             withAnimation {
                 self.clickHandler(restRecord.id)
             }
+        }
+    }
+    
+    private func getFont() -> Font {
+        let fontSize: CGFloat = 16
+        if getAppLanguage() == .zh {
+            return .system(size: fontSize)
+        } else {
+            return .custom("Rubik-Regular", size: fontSize)
         }
     }
     

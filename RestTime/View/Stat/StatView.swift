@@ -93,13 +93,22 @@ struct StatView: View {
     private func getTotalView(_ restRecords: [RestRecord]) -> some View {
         HStack {
             Text("TOTAL:")
-                .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                .font(getFont())
                 .foregroundColor(Color(hex: 0xc3c3c3))
             Text("\(RestRecord.getTotalDuration(restRecords).getFullDescription())")
-                .font(Font.custom("BalooBhaijaan-Regular", size: 20))
+                .font(getFont())
                 .foregroundColor(Color(hex: 0x818589))
         }
         
+    }
+    
+    private func getFont() -> Font {
+        let fontSize: CGFloat = 20
+        if getAppLanguage() == .zh {
+            return .system(size: fontSize)
+        } else {
+            return .custom("BalooBhaijaan-Regular", size: fontSize)
+        }
     }
     
 }
@@ -113,5 +122,11 @@ struct StatView_Previews: PreviewProvider {
                  statRestRecords: StatRestRecords(),
                  currentClickedRestRecord: currentClickedRestRecord,
                  setStatItemBottomCardVisibility: { print($0) })
+        
+        StatView(latestRestRecord: LatestRestRecord(),
+                 statRestRecords: StatRestRecords(),
+                 currentClickedRestRecord: currentClickedRestRecord,
+                 setStatItemBottomCardVisibility: { print($0) })
+            .environment(\.locale, .init(identifier: "zh"))
     }
 }

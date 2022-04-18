@@ -16,12 +16,21 @@ struct ModifyDateTime: View {
         VStack(alignment: .leading, spacing: 3) {
             // FIXME Different font for different localizations
             Text(label)
-                .font(Font.custom("BalooBhaijaan-Regular", size: 16))
+                .font(getFont())
                 .foregroundColor(Color(hex: 0x2063C7))
             HStack(spacing: 0) {
                 DatePicker("Please enter the date", selection: $date)
                     .labelsHidden()
             }
+        }
+    }
+    
+    private func getFont() -> Font {
+        let fontSize: CGFloat = 16
+        if getAppLanguage() == .zh {
+            return .system(size: fontSize)
+        } else {
+            return .custom("BalooBahaijaan-Regular", size: fontSize)
         }
     }
 }
@@ -30,9 +39,9 @@ struct ModifyDateTime_Previews: PreviewProvider {
     
     @State private static var date = Date()
     
-    private static let FROM = "FROM"
-    
     static var previews: some View {
-        ModifyDateTime(label: FROM, date: $date)
+        ModifyDateTime(label: "FROM", date: $date)
+        ModifyDateTime(label: "开始时间", date: $date)
+            .environment(\.locale, .init(identifier: "zh"))
     }
 }
