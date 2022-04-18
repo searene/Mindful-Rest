@@ -103,11 +103,13 @@ struct StatView: View {
     }
     
     private func getFont() -> Font {
-        let fontSize: CGFloat = 20
+        let fontSize: CGFloat = 18
         if getAppLanguage() == .zh {
-            return .system(size: fontSize)
+            return .custom("PingFang SC", size: fontSize)
+                .bold()
         } else {
             return .custom("BalooBhaijaan-Regular", size: fontSize)
+                .bold()
         }
     }
     

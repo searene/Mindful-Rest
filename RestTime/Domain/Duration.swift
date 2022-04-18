@@ -57,15 +57,18 @@ struct Duration: Equatable {
     }
     
     private func getHoursStr(_ hours: Int) -> String {
-        return "\(hours)\(HOUR_DESC)"
+        let splitter = getAppLanguage() == .zh ? " " : ""
+        return "\(hours)\(splitter)\(HOUR_DESC)"
     }
     
     private func getMinutesStr(_ minutes: Int) -> String {
-        return "\(minutes)\(MINUTE_DESC)"
+        let splitter = getAppLanguage() == .zh ? " " : ""
+        return "\(minutes)\(splitter)\(MINUTE_DESC)"
     }
     
     private func getSecondsStr(_ seconds: Int) -> String {
-        return "\(seconds)\(SECOND_DESC)"
+        let splitter = getAppLanguage() == .zh ? " " : ""
+        return "\(seconds)\(splitter)\(SECOND_DESC)"
     }
     
     private func toStr(_ num: Int) -> String {
