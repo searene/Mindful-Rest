@@ -11,8 +11,6 @@ struct DatePickerWithArrows: View {
     
     @Binding var selectedDate: Date
     
-    private let PLEASE_SELECT: LocalizedStringKey = "Please select the date"
-    
     init(selectedDate: Binding<Date>) {
         _selectedDate = selectedDate
     }
@@ -27,7 +25,7 @@ struct DatePickerWithArrows: View {
                         .onTapGesture {
                             selectedDate = selectedDate.previousDay
                         }
-                DatePicker(PLEASE_SELECT, selection: $selectedDate, displayedComponents: .date)
+                DatePicker("Please select the date", selection: $selectedDate, displayedComponents: .date)
                         .labelsHidden()
                         .id(selectedDate)
                         .padding(.leading, 20)

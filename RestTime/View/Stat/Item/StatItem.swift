@@ -58,17 +58,16 @@ struct StatItem: View {
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
             .font(Font.custom("Rubik-Regular", size: 16))
-            .onTapGesture {
-                withAnimation {
-                    self.clickHandler(restRecord.id)
-                }
-            }
             .overlay(GeometryReader { proxy in
                 Color(hex: 0x7683D7)
                     .frame(width: getDurationLineWidth(proxy.size.width, proportion), height: 5)
                     .padding(.top, proxy.size.height)
             })
-            
+        }
+        .onTapGesture {
+            withAnimation {
+                self.clickHandler(restRecord.id)
+            }
         }
     }
     
