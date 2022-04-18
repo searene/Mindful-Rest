@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
-               BuildableName = "RestTime.app"
+               BuildableName = "Mindful Rest.app"
                BlueprintName = "Mindful Rest"
                ReferencedContainer = "container:RestTime.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
-            BuildableName = "RestTime.app"
+            BuildableName = "Mindful Rest.app"
             BlueprintName = "Mindful Rest"
             ReferencedContainer = "container:RestTime.xcodeproj">
          </BuildableReference>
@@ -86,7 +86,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
-            BuildableName = "RestTime.app"
+            BuildableName = "Mindful Rest.app"
             BlueprintName = "Mindful Rest"
             ReferencedContainer = "container:RestTime.xcodeproj">
          </BuildableReference>
