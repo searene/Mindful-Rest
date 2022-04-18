@@ -67,19 +67,24 @@ struct Card<Content: View>: View {
 }
 
 struct CardContent: View {
+    
+    private let MODIFY: LocalizedStringKey = "Modify"
+    private let DELETE: LocalizedStringKey = "Delete"
+    private let CANCEL: LocalizedStringKey = "Cancel"
+    
     var body: some View {
         VStack {
-            Button("Modify", action: {})
+            Button(MODIFY, action: {})
                 .frame(maxWidth: .infinity)
                 .padding()
             
-            Button("Delete", role: .destructive, action: {})
+            Button(DELETE, role: .destructive, action: {})
                 .frame(maxWidth: .infinity)
                 .padding()
             
             Divider()
             
-            Button("Cancel", action: {})
+            Button(CANCEL, action: {})
                 .frame(maxWidth: .infinity)
                 .padding()
         }
@@ -90,6 +95,8 @@ struct Card_Previews: PreviewProvider {
     
     @State private static var cardShown = true
     
+    private static let counter: LocalizedStringKey = "Counter"
+    
     static var previews: some View {
         TabView {
             Card(cardShown: $cardShown,
@@ -99,7 +106,7 @@ struct Card_Previews: PreviewProvider {
                     .padding()
             }
             .tabItem {
-                Label("Counter", systemImage: "list.dash")
+                Label(counter, systemImage: "list.dash")
             }
         }
     }

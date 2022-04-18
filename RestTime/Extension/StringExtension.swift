@@ -20,4 +20,5 @@ extension String {
         let data: Data = data(using: .utf8)!
         return try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
     }
+    
 }

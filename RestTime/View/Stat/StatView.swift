@@ -17,6 +17,8 @@ struct StatView: View {
     @State private var statItemOptionsDismissed = false
     private let setStatItemBottomCardVisibility: (_ visible: Bool) -> Void
     
+    private let TOTAL: LocalizedStringKey = "TOTAL:"
+    
     init(latestRestRecord: LatestRestRecord,
          statRestRecords: StatRestRecords,
          currentClickedRestRecord: CurrentClickedRestRecord,
@@ -91,7 +93,7 @@ struct StatView: View {
     @ViewBuilder
     private func getTotalView(_ restRecords: [RestRecord]) -> some View {
         HStack {
-            Text("TOTAL:")
+            Text(TOTAL)
                 .font(Font.custom("BalooBhaijaan-Regular", size: 20))
                 .foregroundColor(Color(hex: 0xc3c3c3))
             Text("\(RestRecord.getTotalDuration(restRecords).getFullDescription())")

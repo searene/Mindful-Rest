@@ -12,6 +12,7 @@
 		D4090BF027F88FC80068E4C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4090BEF27F88FC80068E4C5 /* ContentView.swift */; };
 		D4090BF227F88FCA0068E4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF127F88FCA0068E4C5 /* Assets.xcassets */; };
 		D4090BF527F88FCA0068E4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */; };
+		D40A50A1280C632F00A7CF4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D40A50A3280C632F00A7CF4F /* Localizable.strings */; };
 		D4214FEE28030B110011449C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FED28030B110011449C /* Card.swift */; };
 		D4214FF22803146B0011449C /* StatItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4214FF12803146B0011449C /* StatItemOptions.swift */; };
 		D421500A2806F3E00011449C /* CurrentClickedRestRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42150092806F3E00011449C /* CurrentClickedRestRecord.swift */; };
@@ -76,6 +77,8 @@
 		D4090BEF27F88FC80068E4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4090BF427F88FCA0068E4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D40A50A2280C632F00A7CF4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D40A50A4280C633300A7CF4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D4214FED28030B110011449C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D4214FF12803146B0011449C /* StatItemOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemOptions.swift; sourceTree = "<group>"; };
 		D4214FFA28046DD70011449C /* RestTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,7 @@
 		D4090BE127F88FC80068E4C5 = {
 			isa = PBXGroup;
 			children = (
+				D40A50A3280C632F00A7CF4F /* Localizable.strings */,
 				D4090BEC27F88FC80068E4C5 /* RestTime */,
 				D4A53B1E27FA88AF004A0F4C /* RestTimeTests */,
 				D4090BEB27F88FC80068E4C5 /* Products */,
@@ -413,6 +417,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D4090BE127F88FC80068E4C5;
 			packageReferences = (
@@ -437,6 +442,7 @@
 				D4E7C0112801D7BE00A147D9 /* Rubik-BlackItalic.ttf in Resources */,
 				D4E7C0192801D7BE00A147D9 /* Rubik-Black.ttf in Resources */,
 				D4E7C0182801D7BE00A147D9 /* Rubik-Bold.ttf in Resources */,
+				D40A50A1280C632F00A7CF4F /* Localizable.strings in Resources */,
 				D4E7C0152801D7BE00A147D9 /* Rubik-MediumItalic.ttf in Resources */,
 				D4E7C0122801D7BE00A147D9 /* Rubik-Regular.ttf in Resources */,
 				D4E7C003280199A000A147D9 /* BalooBhaijaan-Regular.ttf in Resources */,
@@ -531,6 +537,18 @@
 			targetProxy = D4A53B2127FA88AF004A0F4C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D40A50A3280C632F00A7CF4F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D40A50A2280C632F00A7CF4F /* en */,
+				D40A50A4280C633300A7CF4F /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D4090BF627F88FCA0068E4C5 /* Debug */ = {

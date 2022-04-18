@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// FIXME try decrease the required iOS version
 struct MainView: View {
     
     @StateObject private var latestRestRecord = LatestRestRecord()

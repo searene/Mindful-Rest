@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-let START_RESTING: String = "START RESTING"
-let STOP: String = "STOP"
+let START_RESTING: LocalizedStringKey = "START RESTING"
+let STOP: LocalizedStringKey = "STOP"
 
 let fileManager: FileManager = .default
 let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @State private var startDate: Date
     @State private var timerString: String
-    @State private var buttonTitle: String
+    @State private var buttonTitle: LocalizedStringKey
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @ObservedObject var latestRestRecord: LatestRestRecord

@@ -14,6 +14,11 @@ struct StatItemOptions: View {
     private let modifyHandler: () -> Void
     @State private var showDeleteAlert = false
     
+    private let MODIFY: LocalizedStringKey = "Modify"
+    private let DELETE: LocalizedStringKey = "Delete"
+    private let CANCEL: LocalizedStringKey = "Cancel"
+    private let DELETE_PROMPT: LocalizedStringKey = "This will delete the current record."
+    
     init(dismissHandler: @escaping () -> Void,
          deleteHandler: @escaping () -> Void,
          modifyHandler: @escaping () -> Void) {
@@ -30,7 +35,7 @@ struct StatItemOptions: View {
                     self.modifyHandler()
                 }
             }) {
-                Text("Modify")
+                Text(MODIFY)
                     .frame(maxWidth: .infinity)
                     .padding()
             }
@@ -38,7 +43,7 @@ struct StatItemOptions: View {
             Button(action: {
                 showDeleteAlert = true
             }) {
-                Text("Delete")
+                Text(DELETE)
                     .foregroundColor(Color.red)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -49,7 +54,7 @@ struct StatItemOptions: View {
             Button(action: {
                 self.dismissHandler()
             }) {
-                Text("Cancel")
+                Text(CANCEL)
                     .frame(maxWidth: .infinity)
                     .padding()
             }
@@ -57,8 +62,8 @@ struct StatItemOptions: View {
         .alert(isPresented: $showDeleteAlert) {
             Alert(
                 title: Text(""),
-                message: Text("This will delete the current record."),
-                primaryButton: .destructive(Text("Delete")) {
+                message: Text(DELETE_PROMPT),
+                primaryButton: .destructive(Text(DELETE)) {
                     withAnimation {
                         self.deleteHandler()
                         self.dismissHandler()

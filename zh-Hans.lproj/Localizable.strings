@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  RestTime
+
+  Created by Joey Green on 2022/4/17.
+  
+*/
+"Cancel" = "取消";
+"Counter" = "计时";
+"Delete" = "删除";
+"Error" = "错误";
+"Modify" = "修改";
+"OK" = "好的";
+"Please enter the date" = "请输入日期";
+"Please select the date" = "请选择日期";
+"Statistics" = "统计";
+"The start time must be less than the end time!" = "开始时间必须早于结束时间！";
+"This will delete the current record." = "当前记录将被删除";
+"TOTAL:" = "总计:";
+"START RESTING" = "开始休息";
+"STOP" = "停止";
+"FROM" = "开始时间";
+"TO" = "结束时间";
+"h" = "小时";
+"m" = "分钟";
+"s" = "秒";

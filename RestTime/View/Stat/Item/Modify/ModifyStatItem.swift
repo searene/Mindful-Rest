@@ -13,6 +13,13 @@ struct ModifyStatItem: View {
     @Binding var shown: Bool
     @State private var showTimeConstraintAlert = false
     
+    private let FROM: LocalizedStringKey = "FROM"
+    private let TO: LocalizedStringKey = "TO"
+    private let CANCEL: LocalizedStringKey = "Cancel"
+    private let OK: LocalizedStringKey = "OK"
+    private let ERROR: LocalizedStringKey = "Error"
+    private let ERROR_MSG: LocalizedStringKey = "The start time must be less than the end time!"
+    
     init(currentClickedRestRecord: CurrentClickedRestRecord,
          statRestRecords: StatRestRecords,
          shown: Binding<Bool>) {
@@ -28,17 +35,17 @@ struct ModifyStatItem: View {
 
     var body: some View {
         VStack {
-            ModifyDateTime(label: "FROM", date: $startDate)
-            ModifyDateTime(label: "TO", date: $endDate)
+            ModifyDateTime(label: FROM, date: $startDate)
+            ModifyDateTime(label: TO, date: $endDate)
             HStack {
-                Text("Cancel")
+                Text(CANCEL)
                     .fontWeight(.bold)
                     .foregroundColor(Color(hex: 0xA3A3A3))
                     .frame(width: 86, height: 36)
                     .onTapGesture {
                         shown = false
                     }
-                Text("OK")
+                Text(OK)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .frame(width: 86, height: 36)
@@ -56,8 +63,8 @@ struct ModifyStatItem: View {
             .padding(.top, 30)
         }
         .alert(isPresented: $showTimeConstraintAlert) {
-            Alert(title: Text("Error"),
-                  message: Text("The start time must be less than the end time!"))
+            Alert(title: Text(ERROR),
+                  message: Text(ERROR_MSG))
         }
         .padding()
     }
