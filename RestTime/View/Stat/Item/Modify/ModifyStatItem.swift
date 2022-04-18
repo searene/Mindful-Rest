@@ -57,14 +57,16 @@ struct ModifyStatItem: View {
                         shown = false
                     }
             }
-            .padding(.top, 15)
-            .padding(.bottom, 15)
+            .padding(.top, 20)
+            .padding(.bottom, 20)
         }
         .alert(isPresented: $showTimeConstraintAlert) {
             Alert(title: Text("Error"),
                   message: Text("The start time must be less than the end time!"))
         }
-        .padding()
+        .padding(.top, 20)
+        .padding(.leading, 20)
+        .padding(.trailing, 20)
     }
     
     private func modifyDates() -> Void {
