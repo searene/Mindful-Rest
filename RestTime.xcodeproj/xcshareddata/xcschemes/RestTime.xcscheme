@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1330"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
                BuildableName = "RestTime.app"
-               BlueprintName = "RestTime"
+               BlueprintName = "Mindful Rest"
                ReferencedContainer = "container:RestTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
             BuildableName = "RestTime.app"
-            BlueprintName = "RestTime"
+            BlueprintName = "Mindful Rest"
             ReferencedContainer = "container:RestTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -87,7 +87,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4090BE927F88FC80068E4C5"
             BuildableName = "RestTime.app"
-            BlueprintName = "RestTime"
+            BlueprintName = "Mindful Rest"
             ReferencedContainer = "container:RestTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

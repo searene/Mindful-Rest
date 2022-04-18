@@ -72,7 +72,7 @@
 
 /* Begin PBXFileReference section */
 		31DCB41FD8B7284306C89714 /* ModifyStatItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyStatItem.swift; sourceTree = "<group>"; };
-		D4090BEA27F88FC80068E4C5 /* RestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4090BEA27F88FC80068E4C5 /* Mindful Rest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mindful Rest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4090BED27F88FC80068E4C5 /* RestTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeApp.swift; sourceTree = "<group>"; };
 		D4090BEF27F88FC80068E4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4090BF127F88FCA0068E4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		D4090BEB27F88FC80068E4C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4090BEA27F88FC80068E4C5 /* RestTime.app */,
+				D4090BEA27F88FC80068E4C5 /* Mindful Rest.app */,
 				D4A53B1D27FA88AF004A0F4C /* RestTimeTests.xctest */,
 				D4214FFA28046DD70011449C /* RestTimeUITests.xctest */,
 			);
@@ -331,9 +331,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4090BE927F88FC80068E4C5 /* RestTime */ = {
+		D4090BE927F88FC80068E4C5 /* Mindful Rest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4090BF827F88FCA0068E4C5 /* Build configuration list for PBXNativeTarget "RestTime" */;
+			buildConfigurationList = D4090BF827F88FCA0068E4C5 /* Build configuration list for PBXNativeTarget "Mindful Rest" */;
 			buildPhases = (
 				D4090BE627F88FC80068E4C5 /* Sources */,
 				D4090BE727F88FC80068E4C5 /* Frameworks */,
@@ -343,12 +343,12 @@
 			);
 			dependencies = (
 			);
-			name = RestTime;
+			name = "Mindful Rest";
 			packageProductDependencies = (
 				D4E7BFC927FBC3AA00A147D9 /* SQLite */,
 			);
 			productName = RestTime;
-			productReference = D4090BEA27F88FC80068E4C5 /* RestTime.app */;
+			productReference = D4090BEA27F88FC80068E4C5 /* Mindful Rest.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D4214FF928046DD70011449C /* RestTimeUITests */ = {
@@ -427,7 +427,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4090BE927F88FC80068E4C5 /* RestTime */,
+				D4090BE927F88FC80068E4C5 /* Mindful Rest */,
 				D4A53B1C27FA88AF004A0F4C /* RestTimeTests */,
 				D4214FF928046DD70011449C /* RestTimeUITests */,
 			);
@@ -528,12 +528,12 @@
 /* Begin PBXTargetDependency section */
 		D421500128046DD70011449C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4090BE927F88FC80068E4C5 /* RestTime */;
+			target = D4090BE927F88FC80068E4C5 /* Mindful Rest */;
 			targetProxy = D421500028046DD70011449C /* PBXContainerItemProxy */;
 		};
 		D4A53B2227FA88AF004A0F4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4090BE927F88FC80068E4C5 /* RestTime */;
+			target = D4090BE927F88FC80068E4C5 /* Mindful Rest */;
 			targetProxy = D4A53B2127FA88AF004A0F4C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -809,7 +809,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4090BF827F88FCA0068E4C5 /* Build configuration list for PBXNativeTarget "RestTime" */ = {
+		D4090BF827F88FCA0068E4C5 /* Build configuration list for PBXNativeTarget "Mindful Rest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4090BF927F88FCA0068E4C5 /* Debug */,
