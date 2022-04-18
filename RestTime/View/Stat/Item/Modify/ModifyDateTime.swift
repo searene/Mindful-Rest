@@ -16,6 +16,7 @@ struct ModifyDateTime: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
+            // FIXME Different font for different localizations
             Text(label)
                 .font(Font.custom("BalooBhaijaan-Regular", size: 16))
                 .foregroundColor(Color(hex: 0x2063C7))

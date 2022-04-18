@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// FIXME try decrease the required iOS version
+/// FIXME Localize the app name
 struct MainView: View {
     
     @StateObject private var latestRestRecord = LatestRestRecord()
