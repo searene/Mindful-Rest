@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RestTime
+@testable import Mindful_Rest
 
 class DurationTest: XCTestCase {
     
@@ -43,20 +43,28 @@ class DurationTest: XCTestCase {
         XCTAssertEqual(d.durationInSeconds, 30)
     }
     
-    func testGetShortDescriptionForSeconds() {
-        let duration = Duration(durationInSeconds: 30)
+    func testGetFullDescriptionForHourAndMinute() {
+        let duration = Duration(durationInSeconds: 3660)
         
-        let shortDesc = duration.getShortDescription()
+        let fullDesc = duration.getFullDescription()
         
-        XCTAssertEqual(shortDesc, "30s")
+        XCTAssertEqual(fullDesc, "1h 1m")
     }
     
-    func testGetShortDescriptionForMinutes() {
-        let duration = Duration(durationInSeconds: 150)
+    func testGetFullDescriptionForHour() {
+        let duration = Duration(durationInSeconds: 3600)
         
-        let shortDesc = duration.getShortDescription()
+        let fullDesc = duration.getFullDescription()
         
-        XCTAssertEqual(shortDesc, "2m")
+        XCTAssertEqual(fullDesc, "1h")
+    }
+    
+    func testGetFullDescriptionForMinute() {
+        let duration = Duration(durationInSeconds: 180)
+        
+        let fullDesc = duration.getFullDescription()
+        
+        XCTAssertEqual(fullDesc, "3m")
     }
 
 }

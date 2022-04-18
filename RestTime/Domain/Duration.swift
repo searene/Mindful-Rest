@@ -37,19 +37,22 @@ struct Duration: Equatable {
         let minutesStr = getMinutesStr(minutes)
         let secondsStr = getSecondsStr(seconds)
         if hours > 0 {
-            return "\(hoursStr) \(minutesStr) \(secondsStr)"
+            if minutes > 0 && seconds > 0 {
+                return "\(hoursStr) \(minutesStr) \(secondsStr)"
+            } else if minutes > 0 {
+                return "\(hoursStr) \(minutesStr)"
+            } else {
+                return "\(hoursStr)"
+            }
         } else if (minutes > 0) {
-            return "\(minutesStr) \(secondsStr)"
+            if seconds > 0 {
+                return "\(minutesStr) \(secondsStr)"
+            } else {
+                return "\(minutesStr)"
+            }
         } else {
             return "\(secondsStr)"
         }
-    }
-    
-    func getShortDescription() -> String {
-        if durationInSeconds < 60 {
-            return "\(durationInSeconds)\(HOUR_DESC)"
-        }
-        return "\(durationInSeconds / 60)\(MINUTE_DESC)"
     }
     
     static func +(left: Duration, right: Duration) -> Duration {

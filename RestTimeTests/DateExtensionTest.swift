@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RestTime
+@testable import Mindful_Rest
 
 class DateExtensionTest: XCTestCase {
 
