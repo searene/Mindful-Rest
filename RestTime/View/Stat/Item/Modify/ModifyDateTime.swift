@@ -26,7 +26,7 @@ struct ModifyDateTime: View {
     }
     
     private func getFont() -> Font {
-        let fontSize: CGFloat = 16
+        let fontSize: CGFloat = 14
         if getAppLanguage() == .zh {
             return .system(size: fontSize)
         } else {

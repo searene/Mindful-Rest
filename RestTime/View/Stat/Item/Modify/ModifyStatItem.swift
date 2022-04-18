@@ -27,9 +27,13 @@ struct ModifyStatItem: View {
     }
 
     var body: some View {
-        VStack {
-            ModifyDateTime(label: "FROM", date: $startDate)
-            ModifyDateTime(label: "TO", date: $endDate)
+        VStack(alignment: .trailing) {
+            VStack {
+                ModifyDateTime(label: "FROM", date: $startDate)
+                    .padding(.bottom, 10)
+                ModifyDateTime(label: "TO", date: $endDate)
+                    .padding(.bottom, 10)
+            }
             HStack {
                 Text("Cancel")
                     .fontWeight(.bold)
@@ -53,7 +57,8 @@ struct ModifyStatItem: View {
                         shown = false
                     }
             }
-            .padding(.top, 30)
+            .padding(.top, 15)
+            .padding(.bottom, 15)
         }
         .alert(isPresented: $showTimeConstraintAlert) {
             Alert(title: Text("Error"),
@@ -88,5 +93,10 @@ struct ModifyStatItem_Previews: PreviewProvider {
             currentClickedRestRecord: CurrentClickedRestRecord(),
             statRestRecords: StatRestRecords(),
             shown: $shown)
+        ModifyStatItem(
+            currentClickedRestRecord: CurrentClickedRestRecord(),
+            statRestRecords: StatRestRecords(),
+            shown: $shown)
+            .environment(\.locale, .init(identifier: "zh"))
     }
 }
