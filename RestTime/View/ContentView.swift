@@ -66,9 +66,9 @@ struct ContentView: View {
                     stopTimer()
                 }
             })
-            .tint(.blue)
-            .controlSize(.large)
-            .buttonStyle(.borderedProminent)
+//            .tint(.blue)
+//            .controlSize(.large)
+//            .buttonStyle(.borderedProminent)
         }
     }
     
@@ -85,7 +85,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView(latestRestRecord: LatestRestRecord())
-                .previewInterfaceOrientation(.portrait)
         }
     }
 }

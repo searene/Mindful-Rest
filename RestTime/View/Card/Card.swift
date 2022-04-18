@@ -78,8 +78,9 @@ struct CardContent: View {
                 .frame(maxWidth: .infinity)
                 .padding()
             
-            Button(DELETE, role: .destructive, action: {})
+            Button(DELETE, action: {})
                 .frame(maxWidth: .infinity)
+                .foregroundColor(Color.red)
                 .padding()
             
             Divider()

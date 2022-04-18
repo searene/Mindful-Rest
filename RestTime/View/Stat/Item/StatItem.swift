@@ -50,25 +50,26 @@ struct StatItem: View {
     }
     
     private func getDurationLabel(startDate: Date, endDate: Date) -> some View {
-        return VStack(alignment: .leading, spacing: 0) {
+        return ZStack {
+            
+            Color.white
             
             Text(Duration.fromDates(startDate, endDate).getFullDescription())
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.white)
             .font(Font.custom("Rubik-Regular", size: 16))
             .onTapGesture {
                 withAnimation {
                     self.clickHandler(restRecord.id)
                 }
             }
+            .overlay(GeometryReader { proxy in
+                Color(hex: 0x7683D7)
+                    .frame(width: getDurationLineWidth(proxy.size.width, proportion), height: 5)
+                    .padding(.top, proxy.size.height)
+            })
             
         }
-        .overlay(GeometryReader { proxy in
-            Color(hex: 0x7683D7)
-                .frame(width: getDurationLineWidth(proxy.size.width, proportion), height: 5)
-                .padding(.top, proxy.size.height)
-        })
     }
     
     private func getDurationLineWidth(_ totalWidth: CGFloat, _ proportion: Float) -> CGFloat {
