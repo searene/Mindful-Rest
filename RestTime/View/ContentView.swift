@@ -48,27 +48,33 @@ struct ContentView: View {
                 .onReceive(timer) { input in
                     timerString = buttonTitle == START_RESTING ? "00:00" : startDate.getDurationString(endDate: Date())
                 }
-            Button(buttonTitle, action: {
-                if buttonTitle == START_RESTING {
-                    startDate = Date()
-                    RestDataManager.upsertOngoingRest(startDate: startDate)
-                    buttonTitle = STOP
-                    startTimer()
-                } else {
-                    let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
-                                                startDate: startDate,
-                                                endDate: Date())
-                    RestDataManager.deleteOngoingRest()
-                    let id = RestDataManager.saveRestRecord(restRecord: restRecord)
-                    latestRestRecord.restRecord = RestRecord(id: id, startDate: restRecord.startDate, endDate: restRecord.endDate)
-                    buttonTitle = START_RESTING
-                    timerString = "00:00"
-                    stopTimer()
-                }
-            })
-//            .tint(.blue)
-//            .controlSize(.large)
-//            .buttonStyle(.borderedProminent)
+            
+            ZStack {
+                
+                Color.blue
+                
+                Button(buttonTitle, action: {
+                    if buttonTitle == START_RESTING {
+                        startDate = Date()
+                        RestDataManager.upsertOngoingRest(startDate: startDate)
+                        buttonTitle = STOP
+                        startTimer()
+                    } else {
+                        let restRecord = RestRecord(id: RestDataManager.NON_PERSISTENT_ID,
+                                                    startDate: startDate,
+                                                    endDate: Date())
+                        RestDataManager.deleteOngoingRest()
+                        let id = RestDataManager.saveRestRecord(restRecord: restRecord)
+                        latestRestRecord.restRecord = RestRecord(id: id, startDate: restRecord.startDate, endDate: restRecord.endDate)
+                        buttonTitle = START_RESTING
+                        timerString = "00:00"
+                        stopTimer()
+                    }
+                })
+                .foregroundColor(Color.white)
+            }
+            .frame(width: 160, height: 50)
+            .cornerRadius(10)
         }
     }
     
