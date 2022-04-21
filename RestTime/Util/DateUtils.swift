@@ -16,12 +16,15 @@ public enum DateFormatType {
     
     case hourAndMinute
     
+    case date
+    
     var stringFormat: String {
         switch self {
         //handle iso Time
         case .localDateTimeSec: return "yyyy-MM-dd HH:mm:ss"
         case .localTimeSec: return "HH:mm:ss"
         case .hourAndMinute: return "HH:mm"
+        case .date: return "yyyy-MM-dd"
         }
     }
 }

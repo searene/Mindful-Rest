@@ -52,6 +52,14 @@ struct MainView: View {
             }
             
         }
+        .onAppear {
+            // Insert test data for screenshots
+            RestDataManager.deleteRestRecordsByStartDate(startDate: Date())
+            let today = Date().toString(format: .date)
+            RestDataManager.saveRestRecord(restRecord: RestRecord(id: RestDataManager.NON_PERSISTENT_ID, startDate: "\(today) 08:00:00".toDate(), endDate: "\(today) 08:21:05".toDate()))
+            RestDataManager.saveRestRecord(restRecord: RestRecord(id: RestDataManager.NON_PERSISTENT_ID, startDate: "\(today) 19:20:01".toDate(), endDate: "\(today) 19:45:10".toDate()))
+            RestDataManager.saveRestRecord(restRecord: RestRecord(id: RestDataManager.NON_PERSISTENT_ID, startDate: "\(today) 22:01:00".toDate(), endDate: "\(today) 22:08:05".toDate()))
+        }
     }
 }
 
