@@ -11,8 +11,6 @@
 	<dict>
 		<key>UIColorName</key>
 		<string>0xFFFFFF</string>
-		<key>UIImageName</key>
-		<string>timer</string>
 	</dict>
 </dict>
 </plist>
