@@ -1,4 +1,4 @@
-# RestTime
+# Mindful Rest
 
 This is an app that can help you focus on your work/study and stop wasting your time on short videos, social media, etc. The idea is pretty simple:
 
